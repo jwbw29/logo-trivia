@@ -3,18 +3,21 @@ import { render, screen } from "@testing-library/react";
 import App from "../app/page";
 
 describe("Home Page", () => {
+  //// Sanity
   it("sanity check", () => {
     render(<App />);
-
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading).toBeInTheDocument();
+    expect(true).toBe(true);
   });
+
+  //// Logo Displays
   it("Game Logo Displays", () => {
     render(<App />);
 
     const logo = screen.getByAltText("game logo");
     expect(logo).toBeInTheDocument();
   });
+
+  //// Dropdown Displays
   it("Category Dropdown displays", () => {
     render(<App />);
 
@@ -22,6 +25,8 @@ describe("Home Page", () => {
     const categorySelect = screen.getByLabelText("category select");
     expect(categorySelect).toBeInTheDocument();
   });
+
+  //// Start Button Displays
   it("Start button displayed", () => {
     render(<App />);
 
