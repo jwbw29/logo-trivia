@@ -6,38 +6,38 @@ import Link from "next/link";
 // rename and duplicate these as much as needed, then just import the named button to your component
 
 //// Primary Button
-// export function ButtonDemo() {
-//   return <Button>Button</Button>;
-// }
+export function ButtonDemo() {
+  return <Button>Button</Button>;
+}
 
 //// Secondary Button
-// export function ButtonSecondary() {
-//   return <Button variant="secondary">Secondary</Button>;
-// }
+export function ButtonSecondary() {
+  return <Button variant="secondary">Secondary</Button>;
+}
 
 //// Outline Button
-// export function ButtonOutline() {
-//   return <Button variant="outline">Outline</Button>;
-// }
+export function ButtonOutline() {
+  return <Button variant="outline">Outline</Button>;
+}
 
 //// Link Button
-// export function ButtonLink() {
-//   return <Button variant="link">Link</Button>;
-// }
+export function ButtonLink() {
+  return <Button variant="link">Link</Button>;
+}
 
 //// Ghost Button
-// export function ButtonGhost() {
-//   return <Button variant="ghost">Ghost</Button>;
-// }
+export function ButtonGhost() {
+  return <Button variant="ghost">Ghost</Button>;
+}
 
 //// Button w Icon
-// export function ButtonWithIcon() {
-//   return (
-//     <Button>
-//       <LuBrain className="mr-2 h-4 w-4" /> Start
-//     </Button>
-//   );
-// }
+export function ButtonWithIcon() {
+  return (
+    <Button>
+      <LuBrain className="mr-2 h-4 w-4" /> Start
+    </Button>
+  );
+}
 
 export function StartButton() {
   return (
@@ -48,20 +48,20 @@ export function StartButton() {
 }
 
 //// Loading Button
-// export function ButtonLoading() {
-//   return (
-//     <Button disabled>
-//       <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
-//       Please wait
-//     </Button>
-//   );
-// }
+export function ButtonLoading() {
+  return (
+    <Button disabled>
+      <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
+      Please wait
+    </Button>
+  );
+}
 
 //// Button as Child
-// export function ButtonAsChild() {
-//   return (
-//     <Button asChild>
-//       <Link href="/login">Login</Link>
-//     </Button>
-//   );
-// }
+export function ButtonAsChild() {
+  return (
+    <Button asChild>
+      <Link href="/login">Login</Link>
+    </Button>
+  );
+}

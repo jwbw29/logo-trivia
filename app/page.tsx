@@ -19,7 +19,7 @@ export default function Home() {
         alt="game logo"
         width={200}
         height={200}
-        className="rounded-full border-4 border-primary"
+        className="gameLogo"
       />
       <Select>
         <SelectTrigger aria-label="category select" className="w-[180px]">
