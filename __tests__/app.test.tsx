@@ -3,12 +3,13 @@ import { render, screen } from "@testing-library/react";
 import App from "../app/page";
 
 describe("Home Page", () => {
-  //// Sanity
-  it("sanity check", () => {
+  //// Nav renders
+  it("Nav renders", () => {
     render(<App />);
-    expect(true).toBe(true);
-  });
 
+    const nav = screen.getByRole("navigation");
+    expect(nav).toBeInTheDocument();
+  });
   //// Logo Displays
   it("Game Logo Displays", () => {
     render(<App />);
