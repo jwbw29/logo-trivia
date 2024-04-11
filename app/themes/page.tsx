@@ -41,20 +41,31 @@ export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
       <Image src={logo} alt="game logo" width={400} className="gameLogo" />
+      <div className="w-3/4 rounded-2xl p-2 bg-background text-foreground border border-foreground">
+        Background / Foreground
+      </div>
       <div className="w-3/4 rounded-2xl p-2 bg-primary text-secondary">
         Primary Color
       </div>
       <div className="w-3/4 rounded-2xl p-2 bg-secondary text-primary">
         Secondary Color
       </div>
-      <div className="w-3/4 rounded-2xl p-2 bg-tertiary text-primary">
+      <div className="w-3/4 rounded-2xl p-2 bg-tertiary text-tertiary-foreground">
         Tertiary Color
       </div>
-      <div className="w-3/4 rounded-2xl p-2 bg-gold text-primary">Gold</div>
       {/* //// Tabs */}
       <CustomTab />
       {/* //// Buttons */}
-      <div className="grid w-full grid-cols-3 grid-rows-3 gap-4 testBorder justify-start">
+      <div className="grid w-full  grid-cols-3 grid-rows-3 gap-4">
+        {/* <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button>
+        <button className="">Test</button> */}
         <ButtonDemo />
         <ButtonSecondary />
         <ButtonOutline />
@@ -68,6 +79,16 @@ export default function Themes() {
       {/* //// Toast Button (still need this if we're forcing login instead of username submission?) */}
       {/* //// Pagination */}
       {/* //// Select */}
+      <Select>
+        <SelectTrigger aria-label="category select" className="w-[180px]">
+          <SelectValue placeholder="Theme" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="light">Light</SelectItem>
+          <SelectItem value="dark">Dark</SelectItem>
+          <SelectItem value="system">System</SelectItem>
+        </SelectContent>
+      </Select>
     </main>
   );
 }

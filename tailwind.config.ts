@@ -22,15 +22,24 @@ const config = {
         custom: "4px 4px 8px rgba(0, 0, 0, 0.38)", // x=4, y=4, blur=8, transparency=38%
       },
       colors: {
-        primary: "#031060",
-        secondary: "#00FDEB",
-        tertiary: "#FF5D69",
         gold: "#FFC834",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        tertiary: {
+          DEFAULT: "hsl(var(--tertiary))",
+          foreground: "hsl(var(--tertiary-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
