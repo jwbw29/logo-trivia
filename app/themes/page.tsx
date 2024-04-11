@@ -80,6 +80,7 @@ export default function Themes() {
           <SelectValue placeholder="Category" />
         </SelectTrigger>
         <SelectContent>
+          <label>NBA: All</label>
           <SelectItem value="nba-all">NBA: All</SelectItem>
           <SelectItem value="nba-east">NBA: Western Conference</SelectItem>
           <SelectItem value="nba-west">NBA: Eastern Conference</SelectItem>
