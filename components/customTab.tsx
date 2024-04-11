@@ -32,9 +32,7 @@ export const CustomTab = () => {
             <div>username</div>
           </CardHeader>
           <CardContent className="space-y-2"></CardContent>
-          <CardFooter>
-            <ButtonDemo></ButtonDemo>
-          </CardFooter>
+          <CardFooter></CardFooter>
         </Card>
       </TabsContent>
       <TabsContent value="all-time">

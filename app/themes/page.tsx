@@ -54,6 +54,17 @@ export default function Themes() {
       {/* //// Tabs */}
       <CustomTab />
       {/* //// Buttons */}
+      <div className="grid w-full grid-cols-3 grid-rows-3 gap-4 testBorder justify-start">
+        <ButtonDemo />
+        <ButtonSecondary />
+        <ButtonOutline />
+        <ButtonLink />
+        <ButtonGhost />
+        <ButtonWithIcon />
+        <StartButton />
+        <ButtonLoading />
+        <ButtonAsChild />
+      </div>
       {/* //// Toast Button (still need this if we're forcing login instead of username submission?) */}
       {/* //// Pagination */}
       {/* //// Select */}

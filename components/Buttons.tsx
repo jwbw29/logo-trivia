@@ -7,33 +7,49 @@ import Link from "next/link";
 
 //// Primary Button
 export function ButtonDemo() {
-  return <Button>Button</Button>;
+  return <Button className="max-w-36 ">Button</Button>;
 }
 
 //// Secondary Button
 export function ButtonSecondary() {
-  return <Button variant="secondary">Secondary</Button>;
+  return (
+    <Button className="max-w-36 " variant="secondary">
+      Secondary
+    </Button>
+  );
 }
 
 //// Outline Button
 export function ButtonOutline() {
-  return <Button variant="outline">Outline</Button>;
+  return (
+    <Button className="max-w-36 " variant="outline">
+      Outline
+    </Button>
+  );
 }
 
 //// Link Button
 export function ButtonLink() {
-  return <Button variant="link">Link</Button>;
+  return (
+    <Button className="max-w-36 " variant="link">
+      Link
+    </Button>
+  );
 }
 
 //// Ghost Button
 export function ButtonGhost() {
-  return <Button variant="ghost">Ghost</Button>;
+  return (
+    <Button className="max-w-36 " variant="ghost">
+      Ghost
+    </Button>
+  );
 }
 
 //// Button w Icon
 export function ButtonWithIcon() {
   return (
-    <Button>
+    <Button className="max-w-36 ">
       <LuBrain className="mr-2 h-4 w-4" /> Start
     </Button>
   );
@@ -41,7 +57,7 @@ export function ButtonWithIcon() {
 
 export function StartButton() {
   return (
-    <Button aria-label="start button">
+    <Button className="max-w-36 " aria-label="start button">
       <LuBrain className="mr-2 h-4 w-4" /> Start
     </Button>
   );
@@ -50,7 +66,7 @@ export function StartButton() {
 //// Loading Button
 export function ButtonLoading() {
   return (
-    <Button disabled>
+    <Button className="max-w-36 " disabled>
       <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
@@ -60,7 +76,7 @@ export function ButtonLoading() {
 //// Button as Child
 export function ButtonAsChild() {
   return (
-    <Button asChild>
+    <Button className="max-w-36 " asChild>
       <Link href="/login">Login</Link>
     </Button>
   );
