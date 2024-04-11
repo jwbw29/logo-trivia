@@ -13,20 +13,10 @@ import {
   ButtonOutline,
   ButtonLink,
   ButtonGhost,
-  ButtonWithIcon,
   StartButton,
   ButtonLoading,
   ButtonAsChild,
 } from "@/components/Buttons";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Pagination,
   PaginationContent,
@@ -41,8 +31,9 @@ export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
       <Image src={logo} alt="game logo" width={400} className="gameLogo" />
-      <div className="w-3/4 rounded-2xl p-2 bg-background text-foreground border border-foreground">
-        Background / Foreground
+      <div className="w-3/4 rounded-2xl p-2 bg-slate-500 ">
+        <span className="text-background">Background</span>{" "}
+        <span className="text-foreground">Foreground</span>
       </div>
       <div className="w-3/4 rounded-2xl p-2 bg-primary text-secondary">
         Primary Color
@@ -56,25 +47,31 @@ export default function Themes() {
       {/* //// Tabs */}
       <CustomTab />
       {/* //// Buttons */}
-      <div className="grid w-full  grid-cols-3 grid-rows-3 gap-4">
-        {/* <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button>
-        <button className="">Test</button> */}
-        <ButtonDemo />
-        <ButtonSecondary />
-        <ButtonOutline />
-        <ButtonLink />
-        <ButtonGhost />
-        <ButtonWithIcon />
-        <StartButton />
-        <ButtonLoading />
-        <ButtonAsChild />
+      <div className="grid w-full grid-cols-3 grid-flow-row-dense gap-4">
+        <div>
+          <ButtonDemo />
+        </div>
+        <div>
+          <ButtonSecondary />
+        </div>
+        <div>
+          <ButtonOutline />
+        </div>
+        <div>
+          <ButtonLink />
+        </div>
+        <div>
+          <ButtonGhost />
+        </div>
+        <div>
+          <StartButton />
+        </div>
+        <div>
+          <ButtonLoading />
+        </div>
+        <div>
+          <ButtonAsChild />
+        </div>
       </div>
       {/* //// Toast Button (still need this if we're forcing login instead of username submission?) */}
       {/* //// Pagination */}
