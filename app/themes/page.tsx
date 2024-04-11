@@ -18,6 +18,7 @@ import {
   StartButton,
   ButtonLoading,
   ButtonAsChild,
+  ButtonWithIcon,
 } from "@/components/Buttons";
 import {
   Pagination,
@@ -52,7 +53,7 @@ export default function Themes() {
       {/* //// Buttons */}
       <div className="grid w-full grid-cols-3 grid-flow-row-dense gap-4">
         <div>
-          <ButtonDemo />
+          <StartButton />
         </div>
         <div>
           <ButtonSecondary />
@@ -67,7 +68,7 @@ export default function Themes() {
           <ButtonGhost />
         </div>
         <div>
-          <StartButton />
+          <ButtonWithIcon />
         </div>
         <div>
           <ButtonLoading />

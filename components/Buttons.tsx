@@ -6,8 +6,8 @@ import Link from "next/link";
 // rename and duplicate these as much as needed, then just import the named button to your component
 
 //// Primary Button
-export function ButtonDemo() {
-  return <Button className="min-w-36">Button</Button>;
+export function StartButton() {
+  return <Button className="min-w-36 text-lg">Start</Button>;
 }
 
 //// Secondary Button
@@ -47,7 +47,7 @@ export function ButtonGhost() {
 }
 
 //// Button with Icon
-export function StartButton() {
+export function ButtonWithIcon() {
   return (
     <Button className="min-w-36 gap-2 " aria-label="start button">
       <LuBrain className="mr-2 h-4 w-4" />
