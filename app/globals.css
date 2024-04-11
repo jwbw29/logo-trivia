@@ -40,9 +40,9 @@
   * {
     @apply border-border;
   }
-  /* body {
+  body {
     @apply bg-background text-foreground;
-  } */
+  }
   main {
     @apply p-2;
   }
