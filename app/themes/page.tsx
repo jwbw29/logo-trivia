@@ -28,7 +28,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { useToast, toast } from "@/components/ui/use-toast";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 
 export default function Themes() {
@@ -80,51 +79,46 @@ export default function Themes() {
       {/* //// Select */}
       <Select>
         <SelectTrigger aria-label="category select" className="w-[180px]">
-          <SelectValue placeholder="Category" />
+          <SelectValue placeholder="Choose Category" />
         </SelectTrigger>
         <SelectContent>
+          <SelectItem value="all">All Teams</SelectItem>
           <SelectGroup>
             <SelectLabel className="text-primary ">NBA</SelectLabel>
             <SelectItem value="nba-all">All</SelectItem>
             <SelectItem value="nba-east">Eastern Conference</SelectItem>
             <SelectItem value="nba-west">Western Conference</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">NFL</SelectLabel>
             <SelectItem value="nfl-all">All</SelectItem>
             <SelectItem value="nfl-afc">AFC</SelectItem>
             <SelectItem value="nfl-nfc">NFC</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">MLB</SelectLabel>
             <SelectItem value="mlb-all">All</SelectItem>
             <SelectItem value="mlb-al">American League</SelectItem>
             <SelectItem value="mlb-nl">National League</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">NHL</SelectLabel>
             <SelectItem value="nhl-all">All</SelectItem>
             <SelectItem value="nhl-east">Eastern Conference</SelectItem>
             <SelectItem value="nhl-west">Western Conference</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">MLS</SelectLabel>
             <SelectItem value="mls-all">All</SelectItem>
             <SelectItem value="mls-east">Eastern Conference</SelectItem>
             <SelectItem value="mls-west">Western Conference</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">WNBA</SelectLabel>
             <SelectItem value="wnba-all">All</SelectItem>
             <SelectItem value="wnba-east">Eastern Conference</SelectItem>
             <SelectItem value="wnba-west">Western Conference</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">NCAA</SelectLabel>
             <SelectItem value="ncaa-all">All</SelectItem>
@@ -133,7 +127,6 @@ export default function Themes() {
             <SelectItem value="ncaa-big12">Big 12</SelectItem>
             <SelectItem value="ncaa-sec">SEC</SelectItem>
           </SelectGroup>
-
           <SelectGroup>
             <SelectLabel className="text-primary">States</SelectLabel>
             <SelectItem value="states">States</SelectItem>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav>
+    <nav className="flex justify-end p-8">
       {/* <Link href="/profile"> */}
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" />
