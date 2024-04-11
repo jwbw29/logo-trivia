@@ -46,11 +46,12 @@ export function ButtonGhost() {
   );
 }
 
-//// Button w Icon
+//// Button with Icon
 export function StartButton() {
   return (
-    <Button className="min-w-36 " aria-label="start button">
-      <LuBrain className="mr-2 h-4 w-4" /> Start
+    <Button className="min-w-36 gap-2 " aria-label="start button">
+      <LuBrain className="mr-2 h-4 w-4" />
+      Start
     </Button>
   );
 }

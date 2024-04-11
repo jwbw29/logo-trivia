@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import React from "react";
 
-export const CustomTab = () => {
+export const LeaderboardTabs = () => {
   return (
     <Tabs defaultValue="this-week" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
