@@ -22,7 +22,7 @@
     --tertiary: 44 100% 60%; /* gold */
     --tertiary-foreground: 222.2 80% 10%; /* navy or white */
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 222 30% 30%;
     --muted-foreground: 215 20.2% 65.1%;
 
     --accent: 222.2 50% 50%;
@@ -31,8 +31,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 25%;
-    --input: 217.2 32.6% 25%;
+    --border: 222 30% 30%;
+    --input: 222 30% 30%;
     --ring: 212.7 26.8% 83.9%;
 
     --radius: 0.5rem;
@@ -53,6 +53,6 @@
     @apply border border-red-500;
   }
   .gameLogo {
-    @apply rounded-full border-4 border-primary;
+    @apply rounded-full border-2 border-tertiary;
   }
 }

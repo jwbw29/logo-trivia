@@ -22,8 +22,10 @@ import {
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
+  PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useToast, toast } from "@/components/ui/use-toast";
@@ -75,7 +77,6 @@ export default function Themes() {
           <ButtonAsChild />
         </div>
       </div>
-      {/* //// Toast Button (still need this if we're forcing login instead of username submission?) */}
       {/* //// Select */}
       <Select>
         <SelectTrigger aria-label="category select" className="w-[180px]">
@@ -140,6 +141,22 @@ export default function Themes() {
         </SelectContent>
       </Select>
       {/* //// Pagination */}
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </main>
   );
 }

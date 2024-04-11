@@ -1,11 +1,9 @@
 "use client";
 
-import { ButtonDemo } from "@/components/Buttons";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -15,7 +13,7 @@ import React from "react";
 export const LeaderboardTabs = () => {
   return (
     <Tabs defaultValue="this-week" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
+      <TabsList className="grid w-full grid-cols-2 bg-muted">
         <TabsTrigger value="this-week">This Week</TabsTrigger>
         <TabsTrigger value="all-time">All Time</TabsTrigger>
       </TabsList>
