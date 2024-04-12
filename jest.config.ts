@@ -94,8 +94,7 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/$1",
     "^@/components/(.*)$": "<rootDir>/components/$1",
     "\\.(scss|css|sass)$": "identity-obj-proxy",
-    "\\.(jpg|jpeg|png|gif|svg|woff|woff2|eot|ttf)$":
-      "<rootDir>/__mocks__/fileMock.js",
+    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -183,6 +182,7 @@ const config: Config = {
     // Use babel-jest to transpile tests with the next/babel preset
     // This allows you to use Next.js features, such as importing images and CSS
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
+    "\\.(png|jpg|jpeg|gif|webp|svg)$": "<rootDir>/fileTransform.js", // Handling image and other file types
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
