@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { LuBrain } from "react-icons/lu";
 import { LuLoader2 } from "react-icons/lu";
+import { LuArrowBigLeft } from "react-icons/lu";
+
 import Link from "next/link";
 
 // rename and duplicate these as much as needed, then just import the named button to your component
@@ -45,11 +47,15 @@ export function ButtonLink() {
   );
 }
 
-//// Ghost Button
-export function ButtonGhost() {
+//// Quit Button
+export function QuitButton() {
   return (
-    <Button aria-label="ghost button" className="min-w-36 " variant="ghost">
-      Ghost
+    <Button
+      aria-label="quit button"
+      className="min-w-36 gap-2 p-4"
+      variant="ghost"
+    >
+      <LuArrowBigLeft className="text-2xl" /> <p>Quit</p>
     </Button>
   );
 }

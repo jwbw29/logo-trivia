@@ -47,7 +47,7 @@
     @apply bg-background text-foreground;
   }
   main {
-    @apply p-2;
+    @apply p-2 max-w-[800px] mx-auto;
   }
   .testBorder {
     @apply border border-red-500;

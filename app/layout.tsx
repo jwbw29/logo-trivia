@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Caveat, Orbitron, Oxanium } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-orbitron",
+});
+
+const oxanium = Oxanium({
+  subsets: ["latin"],
+  variable: "--font-oxanium",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} ${caveat.variable} ${orbitron.variable} ${oxanium.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
