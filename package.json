@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:home": "jest __tests__/Home.test.tsx",
-    "app:watch": "jest __tests__/Home.test.tsx --watchAll",
+    "home:watch": "jest __tests__/Home.test.tsx --watchAll",
     "test:game": "jest app/game/Game.test.tsx",
     "game:watch": "jest app/game/Game.test.tsx --watchAll",
     "test:leaderboard": "jest app/leaderboard/Leaderboard.test.tsx.test.tsx",

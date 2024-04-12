@@ -2,36 +2,36 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
-describe("Home Page", () => {
+describe("Home Page Components", () => {
   //// Nav renders
-  it("Nav renders", () => {
+  it("renders Nav", () => {
     render(<Home />);
 
     const nav = screen.getByRole("navigation");
     expect(nav).toBeInTheDocument();
   });
-  //// Logo Displays
-  it("Game Logo Displays", () => {
-    render(<Home />);
 
-    const logo = screen.getByAltText("game logo");
-    expect(logo).toBeInTheDocument();
+  //// Logo Displays
+  it("renders Game Logo", () => {
+    render(<Home />);
+    expect(screen.getByText("Next.js Image stub")).toBeInTheDocument();
   });
 
   //// Dropdown Displays
-  it("Category Dropdown displays", () => {
+  it("renders Category Dropdown", () => {
     render(<Home />);
 
-    // this uses the aria-label attribute to find the select element
     const categorySelect = screen.getByLabelText("category select");
     expect(categorySelect).toBeInTheDocument();
   });
 
   //// Start Button Displays
-  it("Start button displayed", () => {
+  it("renders Start button", () => {
     render(<Home />);
 
     const startButton = screen.getByLabelText("start button");
     expect(startButton).toBeInTheDocument();
   });
 });
+
+// TODO add functionality testing

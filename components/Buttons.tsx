@@ -7,13 +7,21 @@ import Link from "next/link";
 
 //// Primary Button
 export function StartButton() {
-  return <Button className="min-w-36 text-lg">Start</Button>;
+  return (
+    <Button aria-label="start button" className="min-w-36 text-lg">
+      Start
+    </Button>
+  );
 }
 
 //// Secondary Button
 export function ButtonSecondary() {
   return (
-    <Button className="min-w-36 " variant="secondary">
+    <Button
+      aria-label="secondary button"
+      className="min-w-36 "
+      variant="secondary"
+    >
       Secondary
     </Button>
   );
@@ -22,7 +30,7 @@ export function ButtonSecondary() {
 //// Outline Button
 export function ButtonOutline() {
   return (
-    <Button className="min-w-36 " variant="outline">
+    <Button aria-label="outline button" className="min-w-36 " variant="outline">
       Outline
     </Button>
   );
@@ -31,7 +39,7 @@ export function ButtonOutline() {
 //// Link Button
 export function ButtonLink() {
   return (
-    <Button className="min-w-36 " variant="link">
+    <Button aria-label="link button" className="min-w-36 " variant="link">
       Link
     </Button>
   );
@@ -40,7 +48,7 @@ export function ButtonLink() {
 //// Ghost Button
 export function ButtonGhost() {
   return (
-    <Button className="min-w-36 " variant="ghost">
+    <Button aria-label="ghost button" className="min-w-36 " variant="ghost">
       Ghost
     </Button>
   );
@@ -49,7 +57,7 @@ export function ButtonGhost() {
 //// Button with Icon
 export function ButtonWithIcon() {
   return (
-    <Button className="min-w-36 gap-2 " aria-label="start button">
+    <Button aria-label="icon button" className="min-w-36 gap-2 ">
       <LuBrain className="mr-2 h-4 w-4" />
       Start
     </Button>
@@ -59,7 +67,7 @@ export function ButtonWithIcon() {
 //// Loading Button
 export function ButtonLoading() {
   return (
-    <Button className="min-w-36 " disabled>
+    <Button aria-label="loading button" className="min-w-36 " disabled>
       <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
@@ -69,7 +77,7 @@ export function ButtonLoading() {
 //// Button as Child
 export function ButtonAsChild() {
   return (
-    <Button className="min-w-36 " asChild>
+    <Button aria-label="button as child" className="min-w-36 " asChild>
       <Link href="/login">Login</Link>
     </Button>
   );
