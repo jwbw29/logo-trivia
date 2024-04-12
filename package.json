@@ -16,7 +16,8 @@
     "test:results": "jest __tests__/results.test.tsx",
     "results:watch": "jest __tests__/results.test.tsx --watchAll",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:clearCache": "jest --clearCache"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
