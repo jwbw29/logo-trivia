@@ -13,7 +13,7 @@ import {
   ButtonSecondary,
   ButtonOutline,
   ButtonLink,
-  ButtonGhost,
+  QuitButton,
   StartButton,
   ButtonLoading,
   ButtonAsChild,
@@ -70,7 +70,7 @@ export default function Themes() {
           <ButtonLink />
         </div>
         <div>
-          <ButtonGhost />
+          <QuitButton />
         </div>
         <div>
           <ButtonWithIcon />

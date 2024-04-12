@@ -7,10 +7,15 @@ import Link from "next/link";
 
 // rename and duplicate these as much as needed, then just import the named button to your component
 
-//// Primary Button
+//// Start Button
 export function StartButton() {
   return (
-    <Button aria-label="start button" className="min-w-36 text-lg">
+    <Button
+      aria-label="start button"
+      variant="default"
+      size="xxl"
+      className="text-2xl"
+    >
       Start
     </Button>
   );
@@ -19,11 +24,7 @@ export function StartButton() {
 //// Secondary Button
 export function ButtonSecondary() {
   return (
-    <Button
-      aria-label="secondary button"
-      className="min-w-36 "
-      variant="secondary"
-    >
+    <Button aria-label="secondary button" variant="secondary">
       Secondary
     </Button>
   );
@@ -32,7 +33,7 @@ export function ButtonSecondary() {
 //// Outline Button
 export function ButtonOutline() {
   return (
-    <Button aria-label="outline button" className="min-w-36 " variant="outline">
+    <Button aria-label="outline button" variant="outline">
       Outline
     </Button>
   );
@@ -41,7 +42,7 @@ export function ButtonOutline() {
 //// Link Button
 export function ButtonLink() {
   return (
-    <Button aria-label="link button" className="min-w-36 " variant="link">
+    <Button aria-label="link button" variant="link">
       Link
     </Button>
   );
@@ -73,7 +74,7 @@ export function ButtonWithIcon() {
 //// Loading Button
 export function ButtonLoading() {
   return (
-    <Button aria-label="loading button" className="min-w-36 " disabled>
+    <Button aria-label="loading button" disabled>
       <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
@@ -83,7 +84,7 @@ export function ButtonLoading() {
 //// Button as Child
 export function ButtonAsChild() {
   return (
-    <Button aria-label="button as child" className="min-w-36 " asChild>
+    <Button aria-label="button as child" asChild>
       <Link href="/login">Login</Link>
     </Button>
   );

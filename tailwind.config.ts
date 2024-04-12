@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       boxShadow: {
-        custom: "4px 4px 8px rgba(0, 0, 0, 0.38)", // x=4, y=4, blur=8, transparency=38%
+        custom: "4px 4px 8px rgba(0, 252, 235, 0.38)", // x=4, y=4, blur=8, transparency=38%
       },
       fontFamily: {
         caveat: ["var(--font-caveat)"],
