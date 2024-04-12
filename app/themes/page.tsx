@@ -10,7 +10,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  ButtonDemo,
   ButtonSecondary,
   ButtonOutline,
   ButtonLink,
@@ -34,7 +33,13 @@ import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
-      <Image src={logo} alt="game logo" width={400} className="gameLogo" />
+      <Image
+        src={logo}
+        alt="game logo"
+        width={400}
+        height={400}
+        className="gameLogo"
+      />
       <div className="border-4 border-border w-3/4 rounded-2xl p-2 bg-slate-500 ">
         <span className="text-background">Background</span>{" "}
         <span className="text-foreground">Foreground</span>
