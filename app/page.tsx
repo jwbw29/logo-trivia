@@ -16,12 +16,12 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <Nav />
-      <div className="flex flex-col flex-1 justify-center items-center gap-24 mb-[104px]">
+      <div className="flex flex-col flex-1 justify-center items-center gap-24 mb-[104px] m-16">
         <Image
           src={logo}
           alt="game logo"
-          width={250}
-          height={250}
+          width={500}
+          height={500}
           className="gameLogo"
         />
         <div className="flex flex-col gap-12">
