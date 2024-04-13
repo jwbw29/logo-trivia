@@ -19,15 +19,6 @@ import {
   ButtonAsChild,
   ButtonWithIcon,
 } from "@/components/Buttons";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 
 export default function Themes() {
@@ -40,48 +31,6 @@ export default function Themes() {
         height={400}
         className="gameLogo"
       />
-      <div className="border-4 border-border w-3/4 rounded-2xl p-2 bg-slate-500 ">
-        <span className="text-background">Background</span>{" "}
-        <span className="text-foreground">Foreground</span>
-      </div>
-      <div className="border border-border w-3/4 rounded-2xl p-2 bg-primary text-primary-foreground">
-        Primary Color
-      </div>
-      <div className="border border-border w-3/4 rounded-2xl p-2 bg-secondary text-secondary-foreground">
-        Secondary Color
-      </div>
-      <div className="border border-border w-3/4 rounded-2xl p-2 bg-tertiary text-tertiary-foreground">
-        Tertiary Color
-      </div>
-      {/* //// Tabs */}
-      <LeaderboardTabs />
-      {/* //// Buttons */}
-      <div className="grid w-full grid-cols-3 grid-flow-row-dense gap-4">
-        <div>
-          <StartButton />
-        </div>
-        <div>
-          <ButtonSecondary />
-        </div>
-        <div>
-          <ButtonOutline />
-        </div>
-        <div>
-          <ButtonLink />
-        </div>
-        <div>
-          <QuitButton />
-        </div>
-        <div>
-          <ButtonWithIcon />
-        </div>
-        <div>
-          <ButtonLoading />
-        </div>
-        <div>
-          <ButtonAsChild />
-        </div>
-      </div>
       {/* //// Select */}
       <Select>
         <SelectTrigger aria-label="category select" className="w-[180px]">
@@ -139,23 +88,48 @@ export default function Themes() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      {/* //// Pagination */}
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      <div className="border-4 border-border w-3/4 rounded-2xl p-2 bg-slate-500 ">
+        <span className="text-background">Background</span>{" "}
+        <span className="text-foreground">Foreground</span>
+      </div>
+      <div className="border border-border w-3/4 rounded-2xl p-2 bg-primary text-primary-foreground">
+        Primary Color
+      </div>
+      <div className="border border-border w-3/4 rounded-2xl p-2 bg-secondary text-secondary-foreground">
+        Secondary Color
+      </div>
+      <div className="border border-border w-3/4 rounded-2xl p-2 bg-tertiary text-tertiary-foreground">
+        Tertiary Color
+      </div>
+      {/* //// Tabs */}
+      <LeaderboardTabs />
+      {/* //// Buttons */}
+      <div className="w-3/4 grid grid-cols-2">
+        <div className="my-4">
+          <StartButton />
+        </div>
+        <div className="my-4">
+          <ButtonSecondary />
+        </div>
+        <div className="my-4">
+          <ButtonOutline />
+        </div>
+        <div className="my-4">
+          <ButtonLink />
+        </div>
+        <div className="my-4">
+          <QuitButton />
+        </div>
+        <div className="my-4">
+          <ButtonWithIcon />
+        </div>
+        <div className="my-4">
+          <ButtonLoading />
+        </div>
+        <div className="my-4">
+          <ButtonAsChild />
+        </div>
+      </div>
     </main>
   );
 }

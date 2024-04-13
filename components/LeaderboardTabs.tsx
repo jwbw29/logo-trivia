@@ -8,6 +8,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 import React from "react";
 
 export const LeaderboardTabs = () => {
@@ -30,7 +40,25 @@ export const LeaderboardTabs = () => {
             <div>username</div>
           </CardHeader>
           <CardContent className="space-y-2"></CardContent>
-          <CardFooter></CardFooter>
+          <CardFooter>
+            {/* //// Pagination */}
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </CardFooter>
         </Card>
       </TabsContent>
       <TabsContent value="all-time">
@@ -46,7 +74,26 @@ export const LeaderboardTabs = () => {
             <div>username</div>
           </CardHeader>
           <CardContent className="space-y-2"></CardContent>
-          <CardFooter></CardFooter>
+          <CardFooter>
+            {" "}
+            {/* //// Pagination */}
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </CardFooter>
         </Card>
       </TabsContent>
     </Tabs>
