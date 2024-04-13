@@ -52,7 +52,4 @@
   .testBorder {
     @apply border border-red-500;
   }
-  .gameLogo {
-    @apply rounded-full border-2 border-tertiary;
-  }
 }

@@ -16,13 +16,13 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <Nav />
-      <div className="flex flex-col flex-1 justify-start items-center gap-8 mb-[104px]">
+      <div className="flex flex-col flex-1 justify-start items-center gap-8 mb-[104px] m-12">
         <Image
           src={logo}
-          alt="game logo"
-          width={500}
-          height={500}
-          className="gameLogo"
+          alt="brand logo"
+          width={400}
+          height={400}
+          className="rounded-full border-2 border-tertiary"
         />
         <div className="flex flex-col gap-12">
           {/* 

@@ -12,7 +12,7 @@ describe("Home Page Components", () => {
   });
 
   //// Logo Displays
-  it("renders Game Logo", () => {
+  it("renders Brand Logo", () => {
     render(<Home />);
     expect(screen.getByText("Next.js Image stub")).toBeInTheDocument();
   });

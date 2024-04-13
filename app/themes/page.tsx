@@ -26,7 +26,7 @@ export default function Themes() {
     <main className="flex flex-col min-h-screen items-center gap-4">
       <Image
         src={logo}
-        alt="game logo"
+        alt="brand logo"
         width={400}
         height={400}
         className="gameLogo"
