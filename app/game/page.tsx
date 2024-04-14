@@ -68,6 +68,10 @@ export default function Game() {
             Answer 4
           </Button>
         </div>
+        {/*//* TODO If any answer button is active, show the default submit button, else show the disabled button */}
+        <Button disabled size="xl" className="w-full md:w-1/2">
+          Submit
+        </Button>
       </div>
     </main>
   );
