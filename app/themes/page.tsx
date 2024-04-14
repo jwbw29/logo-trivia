@@ -14,7 +14,7 @@ import {
   ButtonOutline,
   ButtonLink,
   QuitButton,
-  StartButton,
+  ButtonDefault,
   ButtonLoading,
   ButtonAsChild,
   ButtonWithIcon,
@@ -106,7 +106,7 @@ export default function Themes() {
       {/* //// Buttons */}
       <div className="w-3/4 grid grid-cols-2">
         <div className="my-4">
-          <StartButton />
+          <ButtonDefault />
         </div>
         <div className="my-4">
           <ButtonSecondary />

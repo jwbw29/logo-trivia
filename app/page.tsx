@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -8,7 +10,6 @@ import {
   SelectGroup,
   SelectLabel,
 } from "@/components/ui/select";
-import { StartButton } from "@/components/Buttons";
 import Nav from "@/components/Nav";
 import logo from "@/public/logoTrivia-logo.png";
 
@@ -89,7 +90,15 @@ export default function Home() {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <StartButton />
+          <Button
+            aria-label="start button"
+            variant="default"
+            size="xxl"
+            className="text-2xl"
+            asChild
+          >
+            <Link href="/game">Start</Link>
+          </Button>
         </div>
       </div>
     </main>

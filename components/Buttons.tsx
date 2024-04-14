@@ -8,17 +8,8 @@ import Link from "next/link";
 // rename and duplicate these as much as needed, then just import the named button to your component
 
 //// Start Button
-export function StartButton() {
-  return (
-    <Button
-      aria-label="start button"
-      variant="default"
-      size="xxl"
-      className="text-2xl"
-    >
-      Start
-    </Button>
-  );
+export function ButtonDefault() {
+  return <Button variant="default">Default</Button>;
 }
 
 //// Secondary Button
