@@ -19,6 +19,7 @@ import {
   ButtonAsChild,
   ButtonWithIcon,
 } from "@/components/Buttons";
+import { Button } from "@/components/ui/button";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 
 export default function Themes() {
@@ -107,6 +108,9 @@ export default function Themes() {
       <div className="w-3/4 grid grid-cols-2">
         <div className="my-4">
           <ButtonDefault />
+        </div>
+        <div className="my-4">
+          <Button disabled>Disabled</Button>
         </div>
         <div className="my-4">
           <ButtonSecondary />
