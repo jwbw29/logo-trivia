@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Results() {
+  let signedIn = true;
+
   return (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-8 ">
@@ -32,7 +34,7 @@ export default function Results() {
         </div>
       </div>
       <div className="flex self-center justify-center items-center my-8 w-5/6">
-        {true ? <Login /> : <LeaderboardTabs />}{" "}
+        {signedIn ? <Login /> : <LeaderboardTabs />}{" "}
       </div>
     </main>
   );
