@@ -11,8 +11,6 @@
     "home:watch": "jest __tests__/Home.test.tsx --watchAll",
     "test:game": "jest app/game/Game.test.tsx",
     "game:watch": "jest app/game/Game.test.tsx --watchAll",
-    "test:leaderboard": "jest app/leaderboard/Leaderboard.test.tsx.test.tsx",
-    "leaderboard:watch": "jest app/leaderboard/Leaderboard.test.tsx.test.tsx --watchAll",
     "test:results": "jest app/results/Results.test.tsx.test.tsx",
     "results:watch": "jest app/results/Results.test.tsx.test.tsx --watchAll",
     "test": "jest",
