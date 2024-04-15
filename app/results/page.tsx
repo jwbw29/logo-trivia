@@ -16,9 +16,26 @@ export default function Results() {
           </Link>
         </Button>
       </nav>
-      <div>Nice!</div>
-      <div>10/10</div>
-      {true ? <Login /> : <LeaderboardTabs />}{" "}
+      <div className="testBorder flex flex-col justify-center items-center gap-4 p-4">
+        <div aria-label="result message">
+          {/* 
+          - if score = 0-1, message = 'Uh...'
+          - if score = 2-4, message = 'Try again, maybe?'
+          - if score = 5-7, message = 'Not bad!'
+          - if score = 8-10, message = 'Nice!' */}
+          <h1 className="text-5xl font-caveat text-primary">Nice!</h1>
+        </div>
+        <div
+          aria-label="result score"
+          className="flex items-center justify-center "
+        >
+          {" "}
+          <h1 className="text-6xl font-caveat ">10/10 </h1>
+        </div>
+      </div>
+      <div className="testBorder flex justify-center items-center my-8">
+        {true ? <Login /> : <LeaderboardTabs />}{" "}
+      </div>
     </main>
   );
 }
