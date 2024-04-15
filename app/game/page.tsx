@@ -17,7 +17,7 @@ import {
 export default function Game() {
   return (
     <main className="flex flex-col min-h-screen">
-      <div className="flex justify-end p-2 pt-4">
+      <div aria-label="settings" className="flex justify-end p-2 pt-4">
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="ghost" size="icon">
@@ -47,30 +47,71 @@ export default function Game() {
         </Dialog>
       </div>
       <div className="flex justify-between text-3xl font-oxanium p-10">
-        <div className="border border-border rounded-sm py-4 px-6">0 / 0</div>
-        <div className="border border-border rounded-sm py-4 px-6">:30</div>
+        <div
+          aria-label="score tracker"
+          className="border border-border rounded-sm py-4 px-6"
+        >
+          0 / 0
+        </div>
+        <div
+          aria-label="timer"
+          className="border border-border rounded-sm py-4 px-6"
+        >
+          :30
+        </div>
       </div>
-      <div className="flex flex-col items-center justify-between pt-4 gap-12 ">
-        <div className="">
+      <div
+        aria-label="game play"
+        className="flex flex-col items-center justify-between pt-4 gap-12 "
+      >
+        <div aria-label="question logo" className="">
           <Image src={mizzou} alt="question logo" width={500} height={500} />
         </div>
-        <div className="flex flex-col">
-          <div className="grid grid-cols-2 grid-rows-2 w-full gap-8 px-2 mb-8">
-            <Button variant="outline" size="xxl" className="text-lg">
+        <div aria-label="answers and submission" className="flex flex-col">
+          <div
+            aria-label="answer choices"
+            className="grid grid-cols-2 grid-rows-2 w-full gap-8 px-2 mb-8"
+          >
+            <Button
+              aria-label="choice one"
+              variant="outline"
+              size="xxl"
+              className="text-lg"
+            >
               Answer 1
             </Button>
-            <Button variant="outline" size="xxl" className="text-lg">
+            <Button
+              aria-label="choice two"
+              variant="outline"
+              size="xxl"
+              className="text-lg"
+            >
               Answer 2
             </Button>
-            <Button variant="outline" size="xxl" className="text-lg">
+            <Button
+              aria-label="choice three"
+              variant="outline"
+              size="xxl"
+              className="text-lg"
+            >
               Answer 3
             </Button>
-            <Button variant="outline" size="xxl" className="text-lg">
+            <Button
+              aria-label="choice four"
+              variant="outline"
+              size="xxl"
+              className="text-lg"
+            >
               Answer 4
             </Button>
           </div>
           {/*//* TODO If any answer button is active, show the default submit button, else show the disabled button */}
-          <Button disabled size="xl" className="w-full md:w-1/2">
+          <Button
+            aria-label="disabled submit"
+            disabled
+            size="xl"
+            className="w-full md:w-1/2"
+          >
             Submit
           </Button>
         </div>
