@@ -32,7 +32,7 @@ export default function Results() {
         </div>
       </div>
       <div className="flex self-center justify-center items-center my-8 w-5/6">
-        {!true ? <Login /> : <LeaderboardTabs />}{" "}
+        {true ? <Login /> : <LeaderboardTabs />}{" "}
       </div>
     </main>
   );

@@ -60,47 +60,57 @@ export default function Login() {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input placeholder="Email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input placeholder="Password" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit">Submit</Button>
-            </form>
-          </Form>{" "}
-        </CardDescription>
+        <CardDescription></CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">content </CardContent>
-      <CardFooter>footer / sign in / sign up buttons</CardFooter>
+      <CardContent className="space-y-4">
+        {" "}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input placeholder="Email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input placeholder="Password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="flex flex-col gap-2">
+              <Button
+                aria-label="login button"
+                // TODO enable button when email and password meet requirements
+                disabled
+                // size="xxl"
+                className="tracking-[.2rem] w-full md:w-1/2"
+              >
+                LOGIN
+              </Button>
+              <Button
+                aria-label="signup link"
+                variant="link"
+                className="tracking-[.2rem] w-full md:w-1/2"
+              >
+                SIGN UP
+              </Button>
+            </div>
+          </form>
+        </Form>{" "}
+      </CardContent>
     </Card>
   );
 }
-// <div>
-//   <div>Log in to submit score</div>
-//   <div>email</div>
-//   <div>password</div>
-//   <div>login button</div>
-//   <div>signup</div>
-// </div>
