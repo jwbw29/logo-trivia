@@ -54,24 +54,26 @@ export default function Game() {
         <div className="">
           <Image src={mizzou} alt="question logo" width={500} height={500} />
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 w-full gap-8 px-2 mb-8">
-          <Button variant="outline" size="xxl" className="text-lg">
-            Answer 1
-          </Button>
-          <Button variant="outline" size="xxl" className="text-lg">
-            Answer 2
-          </Button>
-          <Button variant="outline" size="xxl" className="text-lg">
-            Answer 3
-          </Button>
-          <Button variant="outline" size="xxl" className="text-lg">
-            Answer 4
+        <div className="flex flex-col">
+          <div className="grid grid-cols-2 grid-rows-2 w-full gap-8 px-2 mb-8">
+            <Button variant="outline" size="xxl" className="text-lg">
+              Answer 1
+            </Button>
+            <Button variant="outline" size="xxl" className="text-lg">
+              Answer 2
+            </Button>
+            <Button variant="outline" size="xxl" className="text-lg">
+              Answer 3
+            </Button>
+            <Button variant="outline" size="xxl" className="text-lg">
+              Answer 4
+            </Button>
+            {/*//* TODO If any answer button is active, show the default submit button, else show the disabled button */}
+          </div>
+          <Button disabled size="xl" className="w-full md:w-1/2">
+            Submit
           </Button>
         </div>
-        {/*//* TODO If any answer button is active, show the default submit button, else show the disabled button */}
-        <Button disabled size="xl" className="w-full md:w-1/2">
-          Submit
-        </Button>
       </div>
     </main>
   );
