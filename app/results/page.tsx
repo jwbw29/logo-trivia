@@ -7,7 +7,7 @@ import TempNav from "@/components/tempNav";
 
 export default function Results() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-8 ">
         <TempNav />
         <Button variant="ghost" size="icon" className="text-2xl">
@@ -16,7 +16,7 @@ export default function Results() {
           </Link>
         </Button>
       </nav>
-      <div className="testBorder flex flex-col justify-center items-center gap-4 p-4">
+      <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
           {/* 
           - if score = 0-1, message = 'Uh...'
@@ -33,8 +33,8 @@ export default function Results() {
           <h1 className="text-8xl font-caveat ">10/10 </h1>
         </div>
       </div>
-      <div className="testBorder flex justify-center items-center my-8">
-        {true ? <Login /> : <LeaderboardTabs />}{" "}
+      <div className="flex self-center justify-center items-center my-8 w-5/6">
+        {!true ? <Login /> : <LeaderboardTabs />}{" "}
       </div>
     </main>
   );
