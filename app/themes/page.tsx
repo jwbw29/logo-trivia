@@ -21,10 +21,12 @@ import {
 } from "@/components/Buttons";
 import { Button } from "@/components/ui/button";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
+import TempNav from "@/components/tempNav";
 
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
+      <TempNav />
       <Image
         src={logo}
         alt="brand logo"

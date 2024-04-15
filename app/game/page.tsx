@@ -13,11 +13,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import TempNav from "@/components/tempNav";
 
 export default function Game() {
   return (
     <main className="flex flex-col min-h-screen">
-      <div aria-label="settings" className="flex justify-end p-2 pt-4">
+      <nav aria-label="settings" className="flex justify-end p-2 pt-4">
+        <TempNav />
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="ghost" size="icon">
@@ -45,7 +47,7 @@ export default function Game() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-      </div>
+      </nav>
       <div className="flex justify-between text-3xl font-oxanium p-10">
         <div
           aria-label="score tracker"
