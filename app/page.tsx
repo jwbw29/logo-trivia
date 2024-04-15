@@ -93,7 +93,7 @@ export default function Home() {
           <Button
             aria-label="start button"
             variant="default"
-            size="xxl"
+            size="xl"
             className="text-lg tracking-[.2rem] w-full"
             asChild
           >
