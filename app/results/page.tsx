@@ -23,14 +23,14 @@ export default function Results() {
           - if score = 2-4, message = 'Try again, maybe?'
           - if score = 5-7, message = 'Not bad!'
           - if score = 8-10, message = 'Nice!' */}
-          <h1 className="text-5xl font-caveat text-primary">Nice!</h1>
+          <h1 className="text-6xl font-caveat text-primary">Nice!</h1>
         </div>
         <div
           aria-label="result score"
           className="flex items-center justify-center "
         >
           {" "}
-          <h1 className="text-6xl font-caveat ">10/10 </h1>
+          <h1 className="text-8xl font-caveat ">10/10 </h1>
         </div>
       </div>
       <div className="testBorder flex justify-center items-center my-8">
