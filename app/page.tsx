@@ -94,7 +94,7 @@ export default function Home() {
             aria-label="start button"
             variant="default"
             size="xl"
-            className="text-lg tracking-[.2rem] w-full"
+            className="text-base tracking-[.2rem] w-full"
             asChild
           >
             <Link href="/game">START</Link>

@@ -109,8 +109,8 @@ export default function Game() {
           <Button
             aria-label="disabled submit"
             disabled
-            size="xxl"
-            className="text-lg tracking-[.2rem] w-full md:w-1/2"
+            size="lg"
+            className="text-base tracking-[.2rem] w-full md:w-1/2"
           >
             SUBMIT
           </Button>
