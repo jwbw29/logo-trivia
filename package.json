@@ -13,6 +13,8 @@
     "game:watch": "jest app/game/Game.test.tsx --watchAll",
     "test:results": "jest app/results/Results.test.tsx",
     "results:watch": "jest app/results/Results.test.tsx --watchAll",
+    "test:profile": "jest app/profile/Profile.test.tsx",
+    "profile:watch": "jest app/profile/Profile.test.tsx --watchAll",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:clearCache": "jest --clearCache"

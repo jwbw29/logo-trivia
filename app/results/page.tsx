@@ -1,8 +1,6 @@
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import Login from "@/components/Login";
-import { LuHome } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Nav from "@/components/Nav";
 
 export default function Results() {
   let signedIn = true;
@@ -31,19 +29,7 @@ export default function Results() {
 
   return (
     <main className="flex flex-col min-h-screen ">
-      <nav className="flex justify-end p-8 ">
-        <Button
-          aria-label="home icon"
-          variant="ghost"
-          size="icon"
-          className="text-2xl"
-          asChild
-        >
-          <Link href="/">
-            <LuHome />
-          </Link>
-        </Button>
-      </nav>
+      <Nav />
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
           <h1 className="text-6xl font-caveat text-primary">{message}</h1>
