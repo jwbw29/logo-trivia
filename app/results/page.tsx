@@ -32,7 +32,13 @@ export default function Results() {
   return (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-8 ">
-        <Button variant="ghost" size="icon" className="text-2xl">
+        <Button
+          aria-label="home icon"
+          variant="ghost"
+          size="icon"
+          className="text-2xl"
+          asChild
+        >
           <Link href="/">
             <LuHome />
           </Link>

@@ -11,8 +11,8 @@
     "home:watch": "jest __tests__/Home.test.tsx --watchAll",
     "test:game": "jest app/game/Game.test.tsx",
     "game:watch": "jest app/game/Game.test.tsx --watchAll",
-    "test:results": "jest app/results/Results.test.tsx.test.tsx",
-    "results:watch": "jest app/results/Results.test.tsx.test.tsx --watchAll",
+    "test:results": "jest app/results/Results.test.tsx",
+    "results:watch": "jest app/results/Results.test.tsx --watchAll",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:clearCache": "jest --clearCache"
