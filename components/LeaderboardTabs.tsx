@@ -22,7 +22,7 @@ import React from "react";
 
 export const LeaderboardTabs = () => {
   return (
-    <Tabs defaultValue="this-week" className="w-full">
+    <Tabs defaultValue="this-week" className="w-full" aria-label="leaderboard">
       <TabsList className="grid w-full grid-cols-2 bg-muted">
         <TabsTrigger value="this-week">This Week</TabsTrigger>
         <TabsTrigger value="all-time">All Time</TabsTrigger>

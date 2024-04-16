@@ -2,58 +2,61 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Results from "@/app/results/page";
 
-describe("Results Page", () => {
-  //// Home Icon
+describe("Results: Message & Score", () => {
+  // Message renders
+  it("Message renders", () => {
+    render(<Results />);
+    const message = screen.getByLabelText("result message");
+    expect(message).toBeInTheDocument();
+  });
+
+  // Score renders
+  it("Score renders", () => {
+    render(<Results />);
+    const score = screen.getByLabelText("result score");
+    expect(score).toBeInTheDocument();
+  });
+});
+
+//// Home Icon
+describe("Results: Home Icon", () => {
+  // renders
   it("Home Icon renders", () => {
     render(<Results />);
     expect(false).toBe(true);
   });
 
-  //// Final score message
-  it("Final score message renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
-  });
+  // // routes to home on click
+  // it("Routes to home on click", () => {
+  //   render(<Results />);
+  //   expect(false).toBe(true);
+  // });
+});
 
-  //// Final Score
-  it("Final Score renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
-  });
-
-  //// Log in to submit score message
+//// Login component
+describe("Results: Login Component if not logged in", () => {
+  // renders if user not logged in
   it("Log in to submit score message renders", () => {
     render(<Results />);
-    expect(false).toBe(true);
+
+    const login = screen.getByLabelText("login component");
+    expect(login).toBeInTheDocument();
   });
 
-  //// Form component
-  it("Form component renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
-  });
+  // // logs user in on Login click
+  // it("Logs user in on Login click", () => {
+  //   render(<Results />);
+  //   expect(false).toBe(true);
+  // });
+});
 
-  //// Email input
-  it("Email input renders", () => {
+//// Leaderboard component
+describe("Results: Leaderboard Component if logged in", () => {
+  // renders if user logged in
+  it("Leaderboard renders if user logged in", () => {
     render(<Results />);
-    expect(false).toBe(true);
-  });
 
-  //// Password input
-  it("Password input renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
-  });
-
-  //// Login Button
-  it("Login Button renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
-  });
-
-  //// Register Button renders
-  it("Register Button renders", () => {
-    render(<Results />);
-    expect(false).toBe(true);
+    const leaderboard = screen.getByLabelText("leaderboard");
+    expect(leaderboard).toBeInTheDocument();
   });
 });

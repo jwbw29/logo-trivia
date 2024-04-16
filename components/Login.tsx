@@ -57,7 +57,7 @@ export default function Login() {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full" aria-label="login component">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription></CardDescription>
