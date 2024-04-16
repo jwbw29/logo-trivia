@@ -17,7 +17,7 @@ export default function Profile() {
   return (
     <main className="flex flex-col min-h-screen">
       <Nav />
-      {!user ? (
+      {user ? (
         <div className="flex justify-center items-center mt-20">
           <Card className="w-full" aria-label="login component">
             <CardHeader>
@@ -26,8 +26,15 @@ export default function Profile() {
             <CardContent>
               <div className="flex flex-col">
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-sm text-primary">Username:</h2>
-                  <h3 className="text-2xl">{username}</h3>
+                  <h2
+                    aria-label="username heading"
+                    className="text-sm text-primary"
+                  >
+                    Username:
+                  </h2>
+                  <h3 aria-label="username value" className="text-2xl">
+                    {username}
+                  </h3>
                 </div>
                 <div className="flex">
                   <Button
