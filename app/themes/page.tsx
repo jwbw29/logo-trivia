@@ -22,12 +22,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import { HomeNav, ProfileNav } from "@/components/Nav";
+import Username from "@/components/Username";
 
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
       <HomeNav />
       <ProfileNav />
+      <Username />
       <Image
         src={logo}
         alt="brand logo"
