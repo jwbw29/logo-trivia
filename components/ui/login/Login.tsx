@@ -43,11 +43,17 @@ export default function Login() {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    // Assuming you want to handle login:
+    login(values)
+      .then(() => {
+        // Handle success, such as redirecting the user or showing a success message
+        console.log("Login successful");
+      })
+      .catch((error) => {
+        // Handle errors, possibly show error messages
+        console.error("Login failed:", error);
+      });
   }
-
   return (
     <Card className="w-full" aria-label="login component">
       <CardHeader>
