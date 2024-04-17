@@ -15,7 +15,7 @@ import {
 
 export function HomeNav() {
   return (
-    <nav className="flex justify-end p-8">
+    <nav className="flex w-full justify-end p-8">
       <Button
         aria-label="home icon"
         variant="ghost"
@@ -33,7 +33,7 @@ export function HomeNav() {
 
 export function ProfileNav() {
   return (
-    <nav className="flex justify-end px-8 pb-8 mt-[-2rem]">
+    <nav className="flex w-full justify-end px-8 pb-8 mt-[-2rem]">
       <Button
         aria-label="profile icon"
         variant="ghost"
@@ -51,7 +51,7 @@ export function ProfileNav() {
 
 export function ExitGame() {
   return (
-    <nav aria-label="settings" className="flex justify-end p-8">
+    <nav aria-label="settings" className="flex w-full justify-end p-8">
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="ghost" size="icon">

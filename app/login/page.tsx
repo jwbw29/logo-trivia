@@ -1,7 +1,4 @@
 import Login from "@/components/Login";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { LuHome } from "react-icons/lu";
 import { HomeNav } from "@/components/Nav";
 
 export default function Page() {
