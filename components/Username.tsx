@@ -8,9 +8,7 @@ import {
   Form,
   FormField,
   FormItem,
-  FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -36,17 +34,18 @@ export default function Username() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex max-w-sm items-center space-x-2"
+        className="flex w-full items-center justify-end gap-2 mt-16"
       >
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormControl>
                 <Input placeholder="Username" {...field} />
               </FormControl>
@@ -61,7 +60,7 @@ export default function Username() {
           // size="xxl"
           className="tracking-[.2rem]"
         >
-          LOGIN
+          PLAY
         </Button>
       </form>
     </Form>
