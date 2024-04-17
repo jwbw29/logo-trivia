@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Game from "@/app/game/page";
+import Game from "@/app/play/page";
 
 //// Score Tracker
 describe("Game: Score Tracker", () => {
