@@ -38,7 +38,7 @@ const formSchema = z.object({
     }),
 });
 
-export default function Login() {
+export default function Signup() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,9 +55,9 @@ export default function Login() {
   }
 
   return (
-    <Card className="w-full" aria-label="login component">
+    <Card className="w-full" aria-label="signup component">
       <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
+        <CardTitle className="text-2xl">Sign Up</CardTitle>
         <CardDescription></CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -90,21 +90,21 @@ export default function Login() {
             />
             <div className="flex flex-col gap-2">
               <Button
-                aria-label="login button"
+                aria-label="signup button"
                 // TODO enable button when email and password meet requirements
                 disabled
                 // size="xxl"
                 className="tracking-[.2rem] w-full md:w-1/2"
               >
-                LOGIN
+                SIGN UP
               </Button>
               <Button
-                aria-label="signup route"
+                aria-label="login route"
                 variant="link"
                 className="text-sm tracking-[.2rem] w-full md:w-1/2"
                 asChild
               >
-                <Link href="/signup">SIGN UP</Link>
+                <Link href="/login">LOGIN</Link>
               </Button>
             </div>
           </form>

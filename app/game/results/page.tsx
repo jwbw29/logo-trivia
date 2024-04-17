@@ -1,6 +1,6 @@
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import Login from "@/components/Login";
-import Nav from "@/components/Nav";
+import { HomeNav, ProfileNav } from "@/components/Nav";
 
 export default function Results() {
   let signedIn = true;
@@ -29,7 +29,8 @@ export default function Results() {
 
   return (
     <main className="flex flex-col min-h-screen ">
-      <Nav />
+      <HomeNav />
+      <ProfileNav />
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
           <h1 className="text-6xl font-caveat text-primary">{message}</h1>

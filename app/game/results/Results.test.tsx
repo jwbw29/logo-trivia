@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Results from "@/app/results/page";
+import Results from "@/app/game/results/page";
 
 describe("Results: Message & Score", () => {
   // Message renders

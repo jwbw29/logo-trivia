@@ -10,13 +10,14 @@ import {
   SelectGroup,
   SelectLabel,
 } from "@/components/ui/select";
-import Nav from "@/components/Nav";
+import { HomeNav, ProfileNav } from "@/components/Nav";
 import logo from "@/public/logoTrivia-logo.png";
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Nav />
+      <HomeNav />
+      <ProfileNav />
       <div className="flex flex-col flex-1 justify-start items-center gap-8 mb-[104px] m-12">
         <Image
           src={logo}

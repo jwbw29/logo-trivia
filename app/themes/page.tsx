@@ -21,13 +21,14 @@ import {
 } from "@/components/Buttons";
 import { Button } from "@/components/ui/button";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
-import Nav from "@/components/Nav";
+import { HomeNav, ProfileNav } from "@/components/Nav";
 
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
       <div className="flex w-full justify-end">
-        <Nav />
+        <HomeNav />
+        <ProfileNav />
       </div>
       <Image
         src={logo}
