@@ -1,5 +1,5 @@
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
-import Login from "@/components/Login";
+import Login from "@/components/ui/login/Login";
 import Nav from "@/components/Nav";
 
 export default function Results() {

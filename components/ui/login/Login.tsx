@@ -10,9 +10,10 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "./ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
+import { Button } from "../button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "../form";
 import { Input } from "@/components/ui/input";
+import { login, signup } from "@/components/ui/login/action";
 
 const formSchema = z.object({
   username: z.string().min(6),
@@ -88,6 +89,7 @@ export default function Login() {
                 disabled
                 // size="xxl"
                 className="tracking-[.2rem] w-full md:w-1/2"
+                formAction={login}
               >
                 LOGIN
               </Button>
@@ -95,6 +97,7 @@ export default function Login() {
                 aria-label="signup link"
                 variant="link"
                 className="text-sm tracking-[.2rem] w-full md:w-1/2"
+                formAction={signup} // might have to change these to onClick or onSubmit
               >
                 SIGN UP
               </Button>
