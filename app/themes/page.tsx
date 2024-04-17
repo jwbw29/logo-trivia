@@ -26,10 +26,8 @@ import { HomeNav, ProfileNav } from "@/components/Nav";
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
-      <div className="flex w-full justify-end">
-        <HomeNav />
-        <ProfileNav />
-      </div>
+      <HomeNav />
+      <ProfileNav />
       <Image
         src={logo}
         alt="brand logo"
