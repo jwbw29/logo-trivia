@@ -31,9 +31,9 @@ export function HomeNav() {
   );
 }
 
-export function ProfileNav() {
+export function ProfileNav({ className }: { className?: string }) {
   return (
-    <nav className="flex w-full justify-end px-8 pb-8 mt-[-2rem]">
+    <nav className="flex w-full justify-end p-8">
       <Button
         aria-label="profile icon"
         variant="ghost"

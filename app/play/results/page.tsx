@@ -30,7 +30,7 @@ export default function Results() {
   return (
     <main className="flex flex-col min-h-screen ">
       <HomeNav />
-      <ProfileNav />
+      <ProfileNav className="mt-[-2rem]" />
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
           <h1 className="text-6xl font-caveat text-primary">{message}</h1>

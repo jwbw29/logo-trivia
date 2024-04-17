@@ -28,7 +28,7 @@ export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
       <HomeNav />
-      <ProfileNav />
+      <ProfileNav className='mt-[-2rem]'/>
       <Username />
       <Image
         src={logo}
