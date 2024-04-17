@@ -3,7 +3,7 @@ import mizzou from "@/public/mockData/mizzouLogo.png";
 import { Button } from "@/components/ui/button";
 import { ExitGame } from "@/components/Nav";
 
-export default function Game() {
+export default function Play() {
   return (
     <main className="flex flex-col min-h-screen">
       <ExitGame />

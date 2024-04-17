@@ -98,7 +98,7 @@ export default function Home() {
             className="text-base tracking-[.2rem] w-full"
             asChild
           >
-            <Link href="/game">START</Link>
+            <Link href="/play">START</Link>
           </Button>
         </div>
       </div>

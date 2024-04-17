@@ -46,7 +46,7 @@ describe("Home: Start Button", () => {
   //// Start Button starts game
   // it('', () => {})
 
-  //// Start Button routes to '/game'
+  //// Start Button routes to '/play'
   // it('', () => {})
 });
 
