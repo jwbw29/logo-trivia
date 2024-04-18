@@ -44,15 +44,16 @@ export default function Username() {
     const supabase = createClient();
 
     // Fetch users to check if username is already taken
-    const { data: users, error } = await supabase
+    const { data: existingUser, error: usernameError } = await supabase
       .from("users")
       .select("username")
       .eq("username", values.username)
       .single();
 
     if (
-      error &&
-      error.message !== "JSON object requested, multiple (or no) rows returned"
+      usernameError &&
+      usernameError.message !==
+        "JSON object requested, multiple (or no) rows returned"
     ) {
       setErrorMessage("An error occurred, please try again.");
       setLoading(false);
@@ -61,24 +62,30 @@ export default function Username() {
       console.log("unique user entered!");
     }
 
-    if (users) {
+    if (existingUser) {
       setErrorMessage("Username is already taken.");
       setLoading(false);
       return;
     }
 
+    // Username is unique, proceed to sign in anonymously
+    const { data: anonUser, error: anonUserError } =
+      await supabase.auth.signInAnonymously();
+
     // Insert username into the database
     const { error: insertError } = await supabase
       .from("users")
-      .insert([{ username: values.username }]);
+      .insert([{ username: values.username, id: anonUser.user?.id }]);
 
     if (insertError) {
       setErrorMessage(insertError.message);
+      setLoading(false);
     } else {
-      // Redirect or perform further actions
+      // User is created successfully
       //// Think I need to do more here. Maybe this is where I call signInAnonymously?
       setUserCreated(true);
       console.log("Username registered successfully!");
+      // Optionally, redirect or perform other actions
     }
 
     setLoading(false);
