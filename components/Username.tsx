@@ -58,7 +58,7 @@ export default function Username() {
       setLoading(false);
       return;
     } else {
-      setErrorMessage("No users found, you're good to go!");
+      console.log("unique user entered!");
     }
 
     if (users) {
@@ -76,6 +76,7 @@ export default function Username() {
       setErrorMessage(insertError.message);
     } else {
       // Redirect or perform further actions
+      //// Think I need to do more here. Maybe this is where I call signInAnonymously?
       setUserCreated(true);
       console.log("Username registered successfully!");
     }
@@ -107,12 +108,12 @@ export default function Username() {
           )}
         />
         <Button
-          aria-label="login button"
+          aria-label="save username button"
           disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
           // size="xxl"
           className="tracking-[.2rem] self-start"
         >
-          PLAY
+          SAVE
         </Button>
       </form>
     </Form>
