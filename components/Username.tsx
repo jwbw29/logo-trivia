@@ -51,10 +51,15 @@ export default function Username() {
       .eq("username", values.username)
       .single();
 
-    if (error && error.message !== "No rows found") {
+    if (
+      error &&
+      error.message !== "JSON object requested, multiple (or no) rows returned"
+    ) {
       setErrorMessage("An error occurred, please try again.");
       setLoading(false);
       return;
+    } else {
+      setErrorMessage("No users found, you're good to go!");
     }
 
     if (users) {
@@ -94,6 +99,11 @@ export default function Username() {
                 <Input placeholder="Username" {...field} />
               </FormControl>
               <FormMessage />
+              {errorMessage && (
+                <div className="text-sm font-medium text-destructive">
+                  {errorMessage}
+                </div>
+              )}
             </FormItem>
           )}
         />
