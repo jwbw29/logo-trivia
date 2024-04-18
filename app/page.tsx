@@ -30,14 +30,6 @@ export default function Home() {
         />
         {user ? (
           <div className="flex flex-col gap-12">
-            {/* 
-          # Phase 2 *
-          ## > Select League
-          ## > Select Conference - 
-            - hide until a league is selected
-            - if state is selected, don't show the second Select
-            - if All Teams is selected, don't show the second Select 
-            */}
             <Select>
               <SelectTrigger aria-label="category select" className="w-80">
                 <SelectValue placeholder="Choose Category" />
