@@ -10,6 +10,7 @@ import {
   FormField,
   FormItem,
   FormControl,
+  FormDescription,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -96,33 +97,38 @@ export default function Username() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(authenticateAndSaveUsername)}
-        className="flex w-full justify-end gap-2 mt-16"
+        className="flex flex-col justify-end items-start gap-4 w-3/4 p-2"
       >
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem className="flex-1">
-              <FormControl>
-                <Input placeholder="Username" {...field} />
-              </FormControl>
-              <FormMessage />
-              {errorMessage && (
-                <div className="text-sm font-medium text-destructive">
-                  {errorMessage}
-                </div>
-              )}
-            </FormItem>
-          )}
-        />
-        <Button
-          aria-label="save username button"
-          disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
-          // size="xxl"
-          className="tracking-[.2rem] self-start"
-        >
-          SAVE
-        </Button>
+        <FormDescription>
+          Enter email to add score to leaderboard
+        </FormDescription>
+        <div className="flex w-full items-end gap-2">
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem className="flex-1">
+                <FormControl>
+                  <Input placeholder="Username" {...field} />
+                </FormControl>
+                <FormMessage />
+                {errorMessage && (
+                  <div className="text-sm font-medium text-destructive">
+                    {errorMessage}
+                  </div>
+                )}
+              </FormItem>
+            )}
+          />
+          <Button
+            aria-label="save username button"
+            disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
+            // size="xxl"
+            className="tracking-[.2rem] self-start"
+          >
+            SAVE
+          </Button>
+        </div>
       </form>
     </Form>
   );

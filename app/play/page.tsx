@@ -6,7 +6,7 @@ import { ExitGame } from "@/components/Nav";
 export default function Play() {
   return (
     <main className="flex flex-col min-h-screen">
-      <nav className="flex justify-end p-8">
+      <nav className="flex justify-end p-4">
         <ExitGame />
       </nav>
       <div className="flex justify-between text-3xl font-oxanium p-10">

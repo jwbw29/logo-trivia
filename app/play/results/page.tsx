@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import { HomeNav, ProfileNav } from "@/components/Nav";
@@ -42,31 +44,31 @@ export default function Results() {
       break;
   }
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      setLoading(true);
-      const { data: profile, error: profileError } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", supabase.auth.user()?.id) // BUG Need to change this to something but not sure what yet
-        .single();
+  // useEffect(() => {
+  //   const fetchProfile = async () => {
+  //     setLoading(true);
+  //     const { data: profile, error: profileError } = await supabase
+  //       .from("profiles")
+  //       .select("*")
+  //       .eq("id", supabase.auth.user()?.id) // BUG Need to change this to something but not sure what yet
+  //       .single();
 
-      if (profileError) {
-        console.error("Error fetching profile:", profileError);
-      } else {
-        setProfile(profile);
-      }
-      setLoading(false);
-    };
+  //     if (profileError) {
+  //       console.error("Error fetching profile:", profileError);
+  //     } else {
+  //       setProfile(profile);
+  //     }
+  //     setLoading(false);
+  //   };
 
-    if (supabase.auth.user()) {
-      fetchProfile();
-    }
-  }, []);
+  //   if (supabase.auth.user()) {
+  //     fetchProfile();
+  //   }
+  // }, []);
 
   return (
     <main className="flex flex-col min-h-screen ">
-      <nav className="flex justify-end p-8">
+      <nav className="flex justify-end p-4">
         <HomeNav />
         <ProfileNav />
       </nav>
@@ -79,26 +81,26 @@ export default function Results() {
           className="flex flex-col items-center justify-center "
         >
           {" "}
-          <h1 className="text-6xl font-caveat ">
+          <h1 className="text-4xl md:text-6xl font-caveat ">
             {score} / {attempts}{" "}
           </h1>
           <h1 className="text-8xl font-caveat ">{percentString} </h1>
         </div>
       </div>
-      {loading ? (
+      {/* {loading ? (
         <p>Loading...</p>
-      ) : !profile?.username ? (
-        <div className="flex flex-col items-center justify-center">
-          <Username />
-          <div className="flex self-center justify-center items-center my-8 w-5/6">
-            <LeaderboardTabs />
-          </div>
-        </div>
-      ) : (
+      ) : !profile?.username ? ( */}
+      <div className="flex flex-col items-center justify-center w-full">
+        <Username />
         <div className="flex self-center justify-center items-center my-8 w-5/6">
           <LeaderboardTabs />
         </div>
-      )}
+      </div>
+      {/* ) : (
+        <div className="flex self-center justify-center items-center my-8 w-5/6">
+          <LeaderboardTabs />
+        </div>
+      )} */}
     </main>
   );
 }

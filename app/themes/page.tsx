@@ -27,7 +27,7 @@ import Username from "@/components/Username";
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
-      <nav className="flex justify-end p-8">
+      <nav className="flex justify-end p-4">
         <HomeNav />
         <ProfileNav />
       </nav>

@@ -8,7 +8,7 @@ export default function Profile() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <nav className="flex justify-end p-8">
+      <nav className="flex justify-end p-4">
         {" "}
         <HomeNav />
       </nav>
