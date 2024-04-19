@@ -73,21 +73,21 @@ export default function Username() {
     // const { data: anonUser, error: anonUserError } =
     //   await supabase.auth.signInAnonymously();
 
-    // Insert username into the database
-    const { error: insertError } = await supabase
-      .from("users")
-      .insert([{ username: values.username }]);
+    // // Insert username into the database
+    // const { error: insertError } = await supabase
+    //   .from("users")
+    //   .insert([{ username: values.username }]);
 
-    if (insertError) {
-      setErrorMessage(insertError.message);
-      setLoading(false);
-    } else {
-      // User is created successfully
-      //// Think I need to do more here. Maybe this is where I call signInAnonymously?
-      setUserCreated(true);
-      console.log("Username registered successfully!");
-      // Optionally, redirect or perform other actions
-    }
+    // if (insertError) {
+    //   setErrorMessage(insertError.message);
+    //   setLoading(false);
+    // } else {
+    //   // User is created successfully
+    //   //// Think I need to do more here. Maybe this is where I call signInAnonymously?
+    //   setUserCreated(true);
+    //   console.log("Username registered successfully!");
+    //   // Optionally, redirect or perform other actions
+    // }
 
     setLoading(false);
   }

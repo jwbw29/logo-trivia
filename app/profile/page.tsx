@@ -8,7 +8,10 @@ export default function Profile() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <HomeNav />
+      <nav className="flex justify-end p-8">
+        {" "}
+        <HomeNav />
+      </nav>
       <div className="flex justify-center items-center mt-20">
         <UserInfo username={username} />
       </div>

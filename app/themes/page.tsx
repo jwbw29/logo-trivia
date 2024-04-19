@@ -27,8 +27,10 @@ import Username from "@/components/Username";
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
-      <HomeNav />
-      <ProfileNav className='mt-[-2rem]'/>
+      <nav className="flex justify-end p-8">
+        <HomeNav />
+        <ProfileNav />
+      </nav>
       <Username />
       <Image
         src={logo}
