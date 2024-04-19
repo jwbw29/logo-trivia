@@ -34,11 +34,12 @@ export default function Username() {
     },
     mode: "onChange",
   });
-
   const { isValid } = form.formState;
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function authenticateAndSaveUsername(
+    values: z.infer<typeof formSchema>
+  ) {
     setLoading(true);
     setErrorMessage("");
     const supabase = createClient();
@@ -69,13 +70,13 @@ export default function Username() {
     }
 
     // Username is unique, proceed to sign in anonymously
-    const { data: anonUser, error: anonUserError } =
-      await supabase.auth.signInAnonymously();
+    // const { data: anonUser, error: anonUserError } =
+    //   await supabase.auth.signInAnonymously();
 
     // Insert username into the database
     const { error: insertError } = await supabase
       .from("users")
-      .insert([{ username: values.username, id: anonUser.user?.id }]);
+      .insert([{ username: values.username }]);
 
     if (insertError) {
       setErrorMessage(insertError.message);
@@ -94,7 +95,7 @@ export default function Username() {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(authenticateAndSaveUsername)}
         className="flex w-full justify-end gap-2 mt-16"
       >
         <FormField
