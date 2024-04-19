@@ -50,7 +50,7 @@ export default function Results() {
   //     const { data: profile, error: profileError } = await supabase
   //       .from("profiles")
   //       .select("*")
-  //       .eq("id", supabase.auth.user()?.id) // BUG Need to change this to something but not sure what yet
+  //       .eq("id", supabase.auth.user.user.id) // BUG Need to change this to something but not sure what yet
   //       .single();
 
   //     if (profileError) {
@@ -61,7 +61,7 @@ export default function Results() {
   //     setLoading(false);
   //   };
 
-  //   if (supabase.auth.user()) {
+  //   if (supabase.auth.user.user.id) {
   //     fetchProfile();
   //   }
   // }, []);
