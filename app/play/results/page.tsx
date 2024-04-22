@@ -17,12 +17,10 @@ export default function Results() {
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
-  let score = 26;
-  let attempts = 28;
+  let score = 26; // TODO fetch this from game session
+  let attempts = 28; // TODO fetch this from game session
   let percent = score / attempts;
-  console.log("percent", percent);
   let percentString = (percent * 100).toFixed(2) + "%";
-  console.log(percentString);
   let message = "";
 
   // Message based on score
@@ -44,27 +42,37 @@ export default function Results() {
       break;
   }
 
+  // 1. Find the current user
+  // 2. Check if the current user has a profile
+  // 3. If they do, display the normal page
+  // 4. If they don't, display the username submission modal
+  // 5. After the user submits their username, update the profile table with the username
+  // 6. Display the normal page
+
   // useEffect(() => {
   //   const fetchProfile = async () => {
   //     setLoading(true);
-  //     const { data: profile, error: profileError } = await supabase
-  //       .from("profiles")
-  //       .select("*")
-  //       .eq("id", supabase.auth.user.user.id) // BUG Need to change this to something but not sure what yet
-  //       .single();
+  //     const session = (await supabase.auth.getSession()).data.session;
+  //     const userId = session?.user.id;
 
-  //     if (profileError) {
-  //       console.error("Error fetching profile:", profileError);
-  //     } else {
-  //       setProfile(profile);
-  //     }
+  //     // const { data: profile, error: profileError } = await supabase
+  //     //   .from("profiles")
+  //     //   .select("*")
+  //     //   .eq("id", user.id) // BUG Need to change this to something but not sure what yet
+  //     //   .single();
+
+  //     // if (profileError) {
+  //     //   console.error("Error fetching profile:", profileError);
+  //     // } else {
+  //     //   setProfile(profile);
+  //     // }
   //     setLoading(false);
   //   };
 
-  //   if (supabase.auth.user.user.id) {
-  //     fetchProfile();
-  //   }
-  // }, []);
+  //   // if (!user) {
+  //   fetchProfile();
+  //   // }
+  // }, [supabase.auth, user]);
 
   return (
     <main className="flex flex-col min-h-screen ">
@@ -87,20 +95,9 @@ export default function Results() {
           <h1 className="text-8xl font-caveat ">{percentString} </h1>
         </div>
       </div>
-      {/* {loading ? (
-        <p>Loading...</p>
-      ) : !profile?.username ? ( */}
-      <div className="flex flex-col items-center justify-center w-full">
-        <Username />
-        <div className="flex self-center justify-center items-center my-8 w-5/6">
-          <LeaderboardTabs />
-        </div>
+      <div className="flex self-center justify-center items-center my-8 w-5/6">
+        <LeaderboardTabs />
       </div>
-      {/* ) : (
-        <div className="flex self-center justify-center items-center my-8 w-5/6">
-          <LeaderboardTabs />
-        </div>
-      )} */}
     </main>
   );
 }

@@ -23,11 +23,12 @@ const formSchema = z.object({
 });
 
 export default function Username() {
+
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [userCreated, setUserCreated] = useState(false);
 
-  // 1. Define your form.
+  // Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,7 +38,7 @@ export default function Username() {
   });
   const { isValid } = form.formState;
 
-  // 2. Define a submit handler.
+  // Define a submit handler.
   async function authenticateAndSaveUsername(
     values: z.infer<typeof formSchema>
   ) {
@@ -70,25 +71,7 @@ export default function Username() {
       return;
     }
 
-    // Username is unique, proceed to sign in anonymously
-    // const { data: anonUser, error: anonUserError } =
-    //   await supabase.auth.signInAnonymously();
-
-    // // Insert username into the database
-    // const { error: insertError } = await supabase
-    //   .from("users")
-    //   .insert([{ username: values.username }]);
-
-    // if (insertError) {
-    //   setErrorMessage(insertError.message);
-    //   setLoading(false);
-    // } else {
-    //   // User is created successfully
-    //   //// Think I need to do more here. Maybe this is where I call signInAnonymously?
-    //   setUserCreated(true);
-    //   console.log("Username registered successfully!");
-    //   // Optionally, redirect or perform other actions
-    // }
+    // TODO UPDATE current session
 
     setLoading(false);
   }
@@ -97,7 +80,7 @@ export default function Username() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(authenticateAndSaveUsername)}
-        className="flex flex-col justify-end items-start gap-4 w-3/4 p-2"
+        className="flex flex-col justify-end items-start gap-4 w-full p-2"
       >
         <FormDescription>
           Enter email to add score to leaderboard
