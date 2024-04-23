@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import { HomeNav, ProfileNav } from "@/components/Nav";
-import Username from "@/components/Username";
 import { createClient } from "@/utils/supabase/client";
 
 // TODO
