@@ -1,4 +1,5 @@
 "use client";
+// TODO add form validation for email instead of username
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -28,12 +29,13 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { createClient } from "@/utils/supabase/client";
+import { updateSession } from "@/utils/supabase/middleware";
 
 const supabase = createClient();
 
 const formSchema = z.object({
-  username: z.string().min(6, {
-    message: "Username must be at least 6 characters.",
+  email: z.string().min(6, {
+    message: "Must be a valid email address",
   }),
 });
 
@@ -45,80 +47,59 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  //// Anonymous sign in function
-  const handleAnonymousSignIn = async () => {
-    let session = (await supabase.auth.getSession()).data.session;
-    console.log("1st session check:", session);
-
-    if (!session) {
-      console.log("no session, lets sign in anonymously");
-      const { data: anonUser, error: anonError } =
-        await supabase.auth.signInAnonymously();
-      if (anonError) {
-        console.error("Error signing in anonymously: ", anonError);
-      } else {
-        console.log("Signed in as anonymous user", anonUser);
-        session = (await supabase.auth.getSession()).data.session;
-      }
-    }
-    console.log("Current session:", session);
-    console.log("User's email: ", session?.user.email);
-    // TODO setUserEmail(session.user.email);
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    handleAnonymousSignIn();
-    setLoading(false);
-  }, []);
-
-  /* // ** At this point, we have a session **
-   if session && !username,
-      prompt for email
-   if session && username
-      display username
-      display category
-      display start button
-   2. Check if the current user has a profile
-   3. If they do, display the normal page
-   4. If they don't, display the username submission modal
-   5. After the user submits their username, update the profile table with the username
-   6. Display the normal page*/
-
   //// FORM STUFF
-  //// Define your form.
+  // Define the form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
     },
     mode: "onChange",
   });
   const { isValid } = form.formState;
 
-  //// Define a submit handler.
-  async function authenticateAndSaveUsername(
-    values: z.infer<typeof formSchema>
-  ) {
-    setLoading(true);
-    setErrorMessage("");
+  //// GET SESSION FUNCTION
+  const getSession = async () => {
+    console.log("getting session...");
+    let session = (await supabase.auth.getSession()).data.session;
 
-    //// Fetch users to check if username is already taken
-    const { data: existingUser, error: usernameError } = await supabase
+    if (!session) {
+      handleAnonymousSignIn();
+    } else {
+      console.log("session exists: ", session);
+    }
+
+    if (session?.user.email) {
+      setUserEmail(session.user.email);
+    }
+  };
+
+  //// ANONYMOUS SIGN IN FUNCTION
+  const handleAnonymousSignIn = async () => {
+    console.log("signing in anonymously...");
+    const { data: anonUser, error: anonSignInError } =
+      await supabase.auth.signInAnonymously();
+    if (anonSignInError) {
+      console.error("Error signing in anonymously: ", anonSignInError);
+    } else {
+      console.log("Signed in as anonymous user: ", anonUser);
+    }
+  };
+
+  //// AUTHENTICATE EMAIL FUNCTION
+  const authenticateEmail = async (values: z.infer<typeof formSchema>) => {
+    console.log("checking for duplicate email...");
+    setLoading(true); // this may be redundant inside functions that already did this
+    setErrorMessage("");
+    const { data: existingEmail, error: existingEmailErr } = await supabase
       .from("profiles")
       .select("username")
-      .eq("username", values.username)
+      .eq("username", values.email.split("@")[0])
       .single();
 
-    existingUser
-      ? console.log("existing user", existingUser)
-      : console.log("existing user is null");
-
-    //// if we get an error and that error is NOT "JSON object requested, multiple (or no) rows returned", then we have a problem
-    //// otherwise we have a unique user
     if (
-      usernameError &&
-      usernameError.message !==
+      existingEmailErr &&
+      existingEmailErr.message !==
         "JSON object requested, multiple (or no) rows returned"
     ) {
       setErrorMessage("An error occurred, please try again.");
@@ -128,46 +109,41 @@ export default function Home() {
       console.log("unique user entered!");
     }
 
-    if (!existingUser) {
-      //// if user doesn't exist create one with the username provided and tie it to the current session user, then update the state so that username shows at the top instead of the username component
-      const session = (await supabase.auth.getSession()).data.session;
-      const userId = session?.user.id;
-      const { data: newUser, error: newUserError } = await supabase
-        .from("profiles")
-        .insert([{ username: values.username, id: userId }]);
-
-      if (newUserError) {
-        setErrorMessage("An error occurred, please try again.");
-        setLoading(false);
-        return;
-      }
-
-      //// clear input box
-      form.setValue("username", "");
-
-      setUserCreated(true);
-    } else {
-      setErrorMessage("Username is already taken.");
+    if (existingEmail) {
+      setErrorMessage("Email is already taken.");
       setLoading(false);
       return;
     }
+  };
 
-    // TODO once we have a username, push it to the leaderboard database
-    console.log("userCreated: ", userCreated);
+  //// ON SUBMIT FUNCTION
+  const handleSubmit = async () => {
+    console.log("submitting form...");
+    setLoading(true);
+    authenticateEmail(form.getValues());
+    //don't need to set input field to blank because on click it should render a loading component or the start button
+    setUserEmail(form.getValues().email);
+    // TODO update session user email with the email from the form
+    const { data: updatedUser, error: updatedUserError } =
+      await supabase.auth.updateUser({
+        email: form.getValues().email,
+      });
+    if (updatedUserError) {
+      console.error("Error updating user email: ", updatedUserError);
+      setErrorMessage("An error occurred, please try again.");
+      setLoading(false);
+      return;
+    } else {
+      console.log("User email updated: ", updatedUser);
+    }
+    getSession(); // this *should* reload the session with the new email
+  };
 
-    setLoading(false);
-  }
-
-  /* //// What I'd like handleSubmit() to look like
-     async function handleSubmit(){
-       setLoading(true);
-       setErrorMessage("");
-       await authenticateAndSaveUsername();
-       await updateAnonUser();
-       await linkAnonUserToProfile();
-       setLoading(false);
-     }
-     */
+  //// ON PAGE LOAD
+  useEffect(() => {
+    console.log("component did mount ...");
+    getSession();
+  }); //TODO add a [] dependency here because the page is loading every time I type a new character in the input
 
   return (
     <main className="flex flex-col min-h-screen">
@@ -183,7 +159,7 @@ export default function Home() {
           height={400}
           className="rounded-full border-2 border-tertiary"
         />
-        {userCreated && !loading ? (
+        {userEmail.length > 0 && !loading ? (
           <div className="flex flex-col gap-12">
             <Select>
               <SelectTrigger aria-label="category select" className="w-80">
@@ -255,7 +231,7 @@ export default function Home() {
         ) : (
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(authenticateAndSaveUsername)}
+              onSubmit={form.handleSubmit(handleSubmit)}
               className="flex flex-col justify-end items-start gap-4 w-full p-2"
             >
               <FormDescription>
@@ -264,11 +240,11 @@ export default function Home() {
               <div className="flex w-full items-end gap-2">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="email"
                   render={({ field }) => (
                     <FormItem className="flex-1">
                       <FormControl>
-                        <Input placeholder="Username" {...field} />
+                        <Input placeholder="Email" {...field} />
                       </FormControl>
                       <FormMessage />
                       {errorMessage && (
@@ -280,7 +256,7 @@ export default function Home() {
                   )}
                 />
                 <Button
-                  aria-label="save username button"
+                  aria-label="save email button"
                   disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
                   // size="xxl"
                   className="tracking-[.2rem] self-start"
