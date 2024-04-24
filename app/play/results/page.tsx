@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LeaderboardTabs } from "@/components/LeaderboardTabs";
+import { Leaderboard } from "@/components/Leaderboard";
 import { HomeNav } from "@/components/Nav";
 import { createClient } from "@/utils/supabase/client";
 // import Username from "@/components/Username";
@@ -37,26 +37,27 @@ export default function Results() {
   let attempts = 28; // TODO fetch this from game session
   let percent = correct / attempts;
   let percentString = (percent * 100).toFixed(2) + "%";
-  let message = "";
+  let message = "Your Score:";
 
   // Message based on score
-  switch (true) {
-    case percent >= 0 && percent <= 0.1:
-      message = "Uh...";
-      break;
-    case percent >= 0.2 && percent <= 0.4:
-      message = "Try again, maybe?";
-      break;
-    case percent >= 0.5 && percent <= 0.7:
-      message = "Not bad!";
-      break;
-    case percent >= 0.8 && percent <= 1:
-      message = "Nice!";
-      break;
-    default:
-      message = "Invalid score";
-      break;
-  }
+  // Remove this until I figure out for sure which score I want to display
+  // switch (true) {
+  //   case percent >= 0 && percent <= 0.1:
+  //     message = "Uh...";
+  //     break;
+  //   case percent >= 0.2 && percent <= 0.4:
+  //     message = "Try again, maybe?";
+  //     break;
+  //   case percent >= 0.5 && percent <= 0.7:
+  //     message = "Not bad!";
+  //     break;
+  //   case percent >= 0.8 && percent <= 1:
+  //     message = "Nice!";
+  //     break;
+  //   default:
+  //     message = "Invalid score";
+  //     break;
+  // }
 
   // Define the form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -99,7 +100,9 @@ export default function Results() {
     }
   };
 
-  return (
+  return loading ? (
+    <p>Loading...</p>
+  ) : (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-4">
         <HomeNav />
@@ -107,17 +110,15 @@ export default function Results() {
       </nav>
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
-          <h1 className="text-6xl font-caveat text-primary">{message}</h1>
+          <h1 className="text-5xl font-orbitron">{message}</h1>
         </div>
         <div
           aria-label="result score"
           className="flex flex-col items-center justify-center "
         >
           {" "}
-          <h1 className="text-4xl md:text-6xl font-caveat ">
-            {correct} / {attempts}{" "}
-          </h1>
-          <h1 className="text-8xl font-caveat ">{percentString} </h1>
+          <h1 className="text-9xl font-caveat text-primary">{correct}</h1>
+          <h1 className="text-3xl md:text-5xl font-caveat ">{percentString}</h1>
         </div>
       </div>
       <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
@@ -169,7 +170,7 @@ export default function Results() {
             </form>
           </Form>
         )}{" "}
-        <LeaderboardTabs />
+        <Leaderboard />
       </div>
     </main>
   );

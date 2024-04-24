@@ -20,7 +20,7 @@ import {
   ButtonWithIcon,
 } from "@/components/Buttons";
 import { Button } from "@/components/ui/button";
-import { LeaderboardTabs } from "@/components/LeaderboardTabs";
+import { Leaderboard } from "@/components/Leaderboard";
 import { HomeNav, ProfileNav } from "@/components/Nav";
 import Username from "@/components/Username";
 
@@ -109,7 +109,7 @@ export default function Themes() {
         Tertiary Color
       </div>
       {/* //// Tabs */}
-      <LeaderboardTabs />
+      <Leaderboard />
       {/* //// Buttons */}
       <div className="w-3/4 grid grid-cols-2">
         <div className="my-4">
