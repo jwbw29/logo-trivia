@@ -58,8 +58,8 @@ export default function Results() {
           <h1 className="text-8xl font-caveat ">{percentString} </h1>
         </div>
       </div>
-      <Username />
-      <div className="flex self-center justify-center items-center my-8 w-5/6">
+      <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
+        <Username />
         <LeaderboardTabs />
       </div>
     </main>

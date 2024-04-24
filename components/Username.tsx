@@ -16,8 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  email: z.string().min(6, {
-    message: "Must be a valid email address",
+  username: z.string().min(6, {
+    message: "Must be at least 6 characters",
   }),
 });
 
@@ -29,7 +29,7 @@ export default function Username() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      username: "",
     },
     mode: "onChange",
   });
@@ -48,19 +48,19 @@ export default function Username() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSave)}
-        className="flex flex-col justify-end items-start gap-4 w-full p-2"
+        className="flex flex-col items-start gap-4 w-full py-2"
       >
         <FormDescription>
-          Enter email to add score to leaderboard
+          Enter username to add score to leaderboard
         </FormDescription>
         <div className="flex w-full items-end gap-2">
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem className="flex-1">
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder="Username" {...field} />
                 </FormControl>
                 <FormMessage />
                 {errorMessage && (
@@ -72,7 +72,7 @@ export default function Username() {
             )}
           />
           <Button
-            aria-label="save email button"
+            aria-label="save username button"
             disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
             // size="xxl"
             className="tracking-[.2rem] self-start"
