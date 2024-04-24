@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import { HomeNav, ProfileNav } from "@/components/Nav";
 import { createClient } from "@/utils/supabase/client";
+import Username from "@/components/Username";
 
 export default function Results() {
   const [user, setUser] = useState(null);
@@ -57,6 +58,7 @@ export default function Results() {
           <h1 className="text-8xl font-caveat ">{percentString} </h1>
         </div>
       </div>
+      <Username />
       <div className="flex self-center justify-center items-center my-8 w-5/6">
         <LeaderboardTabs />
       </div>
