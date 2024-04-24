@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { LuLoader2 } from "react-icons/lu";
 
 const supabase = createClient();
 
@@ -75,13 +76,11 @@ export default function Results() {
     setUsername(data.username);
 
     try {
-      const { data: insertedUser, error } = await supabase
-        .from("leaderboard")
-        .insert({
-          username: data.username,
-          correct_answers: correct,
-          attempts: attempts,
-        });
+      const { error } = await supabase.from("leaderboard").insert({
+        username: data.username,
+        correct_answers: correct,
+        attempts: attempts,
+      });
 
       if (error) throw new Error(error.message);
     } catch (err) {
@@ -92,80 +91,85 @@ export default function Results() {
     }
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-4">
         <HomeNav />
-        {/* <ProfileNav /> */}
       </nav>
-      <div className="flex flex-col justify-center items-center gap-4 p-4">
-        <div aria-label="result message">
-          <h1 className="text-5xl font-orbitron">{message}</h1>
+      {loading ? (
+        <div className="flex flex-1 justify-center items-center mb-[72px]">
+          <LuLoader2 className="mr-2 h-28 w-28 animate-spin text-primary" />
         </div>
-        <div
-          aria-label="result score"
-          className="flex flex-col items-center justify-center "
-        >
-          {" "}
-          <h1 className="text-9xl font-caveat text-primary">{correct}</h1>
-          <h1 className="text-3xl md:text-5xl font-caveat ">{percentString}</h1>
-        </div>
-      </div>
-      <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
-        {username ? (
-          <p>
-            Added <span className="text-primary">{username}</span> to
-            Leaderboard
-          </p>
-        ) : (
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSave)}
-              className="flex flex-col items-start gap-4 w-full py-2"
+      ) : (
+        <>
+          <div className="flex flex-col justify-center items-center gap-4 p-4">
+            <div aria-label="result message">
+              <h1 className="text-5xl font-orbitron">{message}</h1>
+            </div>
+            <div
+              aria-label="result score"
+              className="flex flex-col items-center justify-center "
             >
-              <FormDescription>
-                Enter username to add score to leaderboard
-              </FormDescription>
-              <div className="flex w-full items-end gap-2">
-                <FormField
-                  control={form.control}
-                  name="username"
-                  render={({ field }) => (
-                    <FormItem className="flex-1">
-                      <FormControl>
-                        <Input
-                          placeholder="Username"
-                          {...field}
-                          disabled={loading}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      {errorMessage && (
-                        <div className="text-sm font-medium text-destructive">
-                          {errorMessage}
-                        </div>
-                      )}
-                    </FormItem>
-                  )}
-                />
-                <Button
-                  aria-label="save username button"
-                  disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
-                  // size="xxl"
-                  className="tracking-[.2rem] self-start"
+              {" "}
+              <h1 className="text-9xl font-caveat text-primary">{correct}</h1>
+              <h1 className="text-3xl md:text-5xl font-caveat ">
+                {percentString}
+              </h1>
+            </div>
+          </div>
+          <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
+            {username ? (
+              <p>
+                Added <span className="text-primary">{username}</span> to
+                Leaderboard
+              </p>
+            ) : (
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSave)}
+                  className="flex flex-col items-start gap-4 w-full py-2"
                 >
-                  SAVE
-                </Button>
-              </div>
-            </form>
-          </Form>
-        )}{" "}
-        <Leaderboard />
-      </div>
+                  <FormDescription>
+                    Enter username to add score to leaderboard
+                  </FormDescription>
+                  <div className="flex w-full items-end gap-2">
+                    <FormField
+                      control={form.control}
+                      name="username"
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input
+                              placeholder="Username"
+                              {...field}
+                              disabled={loading}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                          {errorMessage && (
+                            <div className="text-sm font-medium text-destructive">
+                              {errorMessage}
+                            </div>
+                          )}
+                        </FormItem>
+                      )}
+                    />
+                    <Button
+                      aria-label="save username button"
+                      disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
+                      // size="xxl"
+                      className="tracking-[.2rem] self-start"
+                    >
+                      SAVE
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+            )}{" "}
+            <Leaderboard />
+          </div>
+        </>
+      )}{" "}
     </main>
   );
 }

@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { createClient } from "@/utils/supabase/client";
+import { LuLoader2 } from "react-icons/lu";
 
 const supabase = createClient();
 
@@ -46,7 +47,11 @@ export const Leaderboard = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="my-12 gap-4">
+        <LuLoader2 className="mr-2 h-28 w-28 animate-spin text-primary" />
+      </div>
+    );
   }
 
   return (
