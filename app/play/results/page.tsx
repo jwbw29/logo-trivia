@@ -76,36 +76,27 @@ export default function Results() {
     console.log("username after setting username", username);
     // form.reset();
     // insert into leaderboard
+
     try {
-      const { data: insertedUser, error: insertUserError } = await supabase
+      const { data: insertedUser, error } = await supabase
         .from("leaderboard")
         .insert({
           username: data.username,
           correct_answers: correct,
           attempts: attempts,
         });
-      console.log("inserted user: ", insertedUser);
+
+      if (error) throw new Error(error.message);
+
+      // confirmation on success
+      console.log("saved username: ", data.username);
+      // refresh leaderboard or additional success logic here
     } catch (err) {
       console.error("Error submitting username: ", err);
       setErrorMessage("Error submitting username. Please try again.");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    // if (insertUserError) {
-    //   setErrorMessage("Error submitting username. Please try again.");
-    //   console.error("Error submitting username: ", insertUserError);
-    //   setLoading(false);
-    //   return;
-    // }
-
-    // if (insertedUser) {
-    //   console.log("inserted user: ", insertedUser);
-    // }
-    // confirmation on success
-    // disable input once username is saved
-    console.log("saved username: ", username); // refresh leaderboard (this may be done somewhere else)
-    setLoading(false);
   };
 
   return (
