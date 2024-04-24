@@ -20,14 +20,17 @@ import {
   ButtonWithIcon,
 } from "@/components/Buttons";
 import { Button } from "@/components/ui/button";
-import { LeaderboardTabs } from "@/components/LeaderboardTabs";
+import { Leaderboard } from "@/components/Leaderboard";
 import { HomeNav, ProfileNav } from "@/components/Nav";
+import Username from "@/components/Username";
 
 export default function Themes() {
   return (
     <main className="flex flex-col min-h-screen items-center gap-4">
-      <HomeNav />
-      <ProfileNav />
+      <nav className="flex justify-end p-4">
+        <HomeNav />
+      </nav>
+      <Username />
       <Image
         src={logo}
         alt="brand logo"
@@ -106,7 +109,7 @@ export default function Themes() {
         Tertiary Color
       </div>
       {/* //// Tabs */}
-      <LeaderboardTabs />
+      <Leaderboard />
       {/* //// Buttons */}
       <div className="w-3/4 grid grid-cols-2">
         <div className="my-4">
