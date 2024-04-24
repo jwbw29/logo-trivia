@@ -33,7 +33,7 @@ export default function Results() {
   const [errorMessage, setErrorMessage] = useState("");
 
   //// Declare variables
-  let correct = 26; // TODO fetch this from game session
+  let correct = 27; // TODO fetch this from game session
   let attempts = 28; // TODO fetch this from game session
   let percent = correct / attempts;
   let percentString = (percent * 100).toFixed(2) + "%";
@@ -60,6 +60,7 @@ export default function Results() {
   // }
 
   // Define the form.
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -75,8 +76,6 @@ export default function Results() {
     setErrorMessage("");
     setUsername(data.username);
     console.log("username after setting username", username);
-    // form.reset();
-    // insert into leaderboard
 
     try {
       const { data: insertedUser, error } = await supabase
@@ -100,9 +99,11 @@ export default function Results() {
     }
   };
 
-  return loading ? (
-    <p>Loading...</p>
-  ) : (
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-4">
         <HomeNav />
@@ -124,7 +125,7 @@ export default function Results() {
       <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
         {username ? (
           <p>
-            Added <span className="text-red-500">{username}</span> to
+            Added <span className="text-primary">{username}</span> to
             Leaderboard
           </p>
         ) : (

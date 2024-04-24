@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Card,
@@ -8,21 +9,46 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import { createClient } from "@/utils/supabase/client";
 
-// [ ] I think this is where I wanna fetch the leaderboard data
+const supabase = createClient();
 
-import React from "react";
+interface LeaderboardEntry {
+  id: number;
+  username: string;
+  correct_answers: number;
+  attempts: number;
+}
 
 export const Leaderboard = () => {
+  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      setLoading(true);
+      const { data: leaderboard, error: fetchError } = await supabase
+        .from("leaderboard")
+        .select("*")
+        .order("correct_answers", { ascending: false })
+        .limit(10);
+
+      if (fetchError) {
+        setError(fetchError.message);
+      } else {
+        setLeaderboard(leaderboard);
+      }
+      setLoading(false);
+    };
+
+    fetchLeaderboard();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Tabs defaultValue="all-time" className="w-full" aria-label="leaderboard">
       <TabsList className="grid grid-cols-2 bg-muted">
@@ -33,36 +59,25 @@ export const Leaderboard = () => {
       <TabsContent value="all-time">
         <Card>
           <CardHeader>
-            <CardTitle>All Time Leaders</CardTitle>
+            <CardTitle>Top 10 Scores</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="flex justify-between">
-              <p>username</p>
-              <p>score</p>{" "}
-              {/*[ ] this should be most correct, not percentage */}
-            </div>
+            {leaderboard.length > 0 ? (
+              leaderboard.map((user, index) => (
+                <div key={index} className="flex justify-between">
+                  <p>{user.username}</p>
+                  <p>{user.correct_answers}</p>{" "}
+                </div>
+              ))
+            ) : (
+              <p>No leaderboard entries found.</p>
+            )}
+            {error && (
+              <p className="text-destructive">
+                Error loading leaderboard: {error}
+              </p>
+            )}
           </CardContent>
-          <CardFooter>
-            {" "}
-            {/* //// Pagination */}
-            {/* [ ] Build some logic that only shows pagination if number of displayed users meets the threshold */}
-            {/* <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination> */}
-          </CardFooter>
         </Card>
       </TabsContent>
     </Tabs>
