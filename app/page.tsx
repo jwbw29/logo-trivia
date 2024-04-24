@@ -60,6 +60,7 @@ export default function Home() {
 
   //// GET SESSION FUNCTION
   const getSession = async () => {
+    // setLoading(true);
     console.log("getting session...");
     let session = (await supabase.auth.getSession()).data.session;
 
@@ -72,6 +73,7 @@ export default function Home() {
     if (session?.user.email) {
       setUserEmail(session.user.email);
     }
+    // setLoading(false);
   };
 
   //// ANONYMOUS SIGN IN FUNCTION
@@ -107,6 +109,7 @@ export default function Home() {
       return;
     } else {
       console.log("unique user entered!");
+      setLoading(false);
     }
 
     if (existingEmail) {
@@ -159,7 +162,9 @@ export default function Home() {
           height={400}
           className="rounded-full border-2 border-tertiary"
         />
-        {userEmail.length > 0 && !loading ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : userEmail.length > 0 ? (
           <div className="flex flex-col gap-12">
             <Select>
               <SelectTrigger aria-label="category select" className="w-80">
