@@ -76,13 +76,21 @@ export default function Results() {
     console.log("username after setting username", username);
     // form.reset();
     // insert into leaderboard
-    // const { data: insertedUser, error: insertUserError } = await supabase
-    //   .from("leaderboard")
-    //   .insert({
-    //     username: data.username,
-    //     correct_answers: correct,
-    //     attempts: attempts,
-    //   });
+    try {
+      const { data: insertedUser, error: insertUserError } = await supabase
+        .from("leaderboard")
+        .insert({
+          username: data.username,
+          correct_answers: correct,
+          attempts: attempts,
+        });
+      console.log("inserted user: ", insertedUser);
+    } catch (err) {
+      console.error("Error submitting username: ", err);
+      setErrorMessage("Error submitting username. Please try again.");
+      setLoading(false);
+      return;
+    }
 
     // if (insertUserError) {
     //   setErrorMessage("Error submitting username. Please try again.");
