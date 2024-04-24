@@ -5,11 +5,6 @@ import { LeaderboardTabs } from "@/components/LeaderboardTabs";
 import { HomeNav, ProfileNav } from "@/components/Nav";
 import { createClient } from "@/utils/supabase/client";
 
-// TODO
-// - on page load, check to see if current user has a username associated w/ their account in the `profiles` table
-//   - if they do, display normal page w/ score and leaderboard
-//   - if they don't, display the username submission modal below the score, and above the leaderboard (see mockup)
-
 export default function Results() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
@@ -40,38 +35,6 @@ export default function Results() {
       message = "Invalid score";
       break;
   }
-
-  // 1. Find the current user
-  // 2. Check if the current user has a profile
-  // 3. If they do, display the normal page
-  // 4. If they don't, display the username submission modal
-  // 5. After the user submits their username, update the profile table with the username
-  // 6. Display the normal page
-
-  // useEffect(() => {
-  //   const fetchProfile = async () => {
-  //     setLoading(true);
-  //     const session = (await supabase.auth.getSession()).data.session;
-  //     const userId = session?.user.id;
-
-  //     // const { data: profile, error: profileError } = await supabase
-  //     //   .from("profiles")
-  //     //   .select("*")
-  //     //   .eq("id", user.id) // BUG Need to change this to something but not sure what yet
-  //     //   .single();
-
-  //     // if (profileError) {
-  //     //   console.error("Error fetching profile:", profileError);
-  //     // } else {
-  //     //   setProfile(profile);
-  //     // }
-  //     setLoading(false);
-  //   };
-
-  //   // if (!user) {
-  //   fetchProfile();
-  //   // }
-  // }, [supabase.auth, user]);
 
   return (
     <main className="flex flex-col min-h-screen ">
