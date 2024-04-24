@@ -23,9 +23,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       {" "}
-      <nav className="flex justify-end p-4">
-        <ProfileNav />
-      </nav>
+      <nav className="flex justify-end p-4">{/* <ProfileNav /> */}</nav>
       <div className="flex flex-col flex-1 justify-start items-center gap-8 mb-[104px] m-12">
         <Image
           src={logo}

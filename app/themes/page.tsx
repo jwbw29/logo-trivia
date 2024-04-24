@@ -29,7 +29,6 @@ export default function Themes() {
     <main className="flex flex-col min-h-screen items-center gap-4">
       <nav className="flex justify-end p-4">
         <HomeNav />
-        <ProfileNav />
       </nav>
       <Username />
       <Image

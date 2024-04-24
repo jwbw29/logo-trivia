@@ -41,7 +41,7 @@ export default function Results() {
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-4">
         <HomeNav />
-        <ProfileNav />
+        {/* <ProfileNav /> */}
       </nav>
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <div aria-label="result message">
