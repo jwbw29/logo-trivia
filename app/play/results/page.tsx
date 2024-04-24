@@ -28,9 +28,8 @@ const formSchema = z.object({
 });
 
 export default function Results() {
-  const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   //// Declare variables
@@ -71,11 +70,15 @@ export default function Results() {
 
   //// ON SAVE
   const onSave = async (data: z.infer<typeof formSchema>) => {
-    console.log("onSave was clicked");
-    // setLoading(true);
+    setLoading(true);
     // setErrorMessage("");
+    // clear form
+    form.reset();
     // insert into leaderboard
-    // refresh leaderboard (this may be done somewhere else)
+    // confirmation on success
+    // disable input once username is saved
+    console.log("saved username: ", data.username); // refresh leaderboard (this may be done somewhere else)
+    setLoading(false);
   };
 
   return (
@@ -115,7 +118,11 @@ export default function Results() {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormControl>
-                      <Input placeholder="Username" {...field} />
+                      <Input
+                        placeholder="Username"
+                        {...field}
+                        disabled={loading}
+                      />
                     </FormControl>
                     <FormMessage />
                     {errorMessage && (
