@@ -59,8 +59,6 @@ export default function Results() {
   //     break;
   // }
 
-  // Define the form.
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -75,7 +73,6 @@ export default function Results() {
     setLoading(true);
     setErrorMessage("");
     setUsername(data.username);
-    console.log("username after setting username", username);
 
     try {
       const { data: insertedUser, error } = await supabase
@@ -87,10 +84,6 @@ export default function Results() {
         });
 
       if (error) throw new Error(error.message);
-
-      // confirmation on success
-      console.log("saved username: ", data.username);
-      // refresh leaderboard or additional success logic here
     } catch (err) {
       console.error("Error submitting username: ", err);
       setErrorMessage("Error submitting username. Please try again.");
