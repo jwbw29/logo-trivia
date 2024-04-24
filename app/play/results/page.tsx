@@ -1,17 +1,39 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { LeaderboardTabs } from "@/components/LeaderboardTabs";
-import { HomeNav, ProfileNav } from "@/components/Nav";
+import { HomeNav } from "@/components/Nav";
 import { createClient } from "@/utils/supabase/client";
-import Username from "@/components/Username";
+// import Username from "@/components/Username";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormControl,
+  FormDescription,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+const supabase = createClient();
+
+const formSchema = z.object({
+  username: z.string().min(6, {
+    message: "Must be at least 6 characters",
+  }),
+});
 
 export default function Results() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const supabase = createClient();
+  const [errorMessage, setErrorMessage] = useState("");
 
+  //// Declare variables
   let score = 26; // TODO fetch this from game session
   let attempts = 28; // TODO fetch this from game session
   let percent = score / attempts;
@@ -37,6 +59,25 @@ export default function Results() {
       break;
   }
 
+  // Define the form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+    },
+    mode: "onChange",
+  });
+  const { isValid } = form.formState;
+
+  //// ON SAVE
+  const onSave = async (data: z.infer<typeof formSchema>) => {
+    console.log("onSave was clicked");
+    // setLoading(true);
+    // setErrorMessage("");
+    // insert into leaderboard
+    // refresh leaderboard (this may be done somewhere else)
+  };
+
   return (
     <main className="flex flex-col min-h-screen ">
       <nav className="flex justify-end p-4">
@@ -59,7 +100,43 @@ export default function Results() {
         </div>
       </div>
       <div className="flex flex-col self-center justify-center items-center my-4 w-5/6 gap-8">
-        <Username />
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSave)}
+            className="flex flex-col items-start gap-4 w-full py-2"
+          >
+            <FormDescription>
+              Enter username to add score to leaderboard
+            </FormDescription>
+            <div className="flex w-full items-end gap-2">
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <Input placeholder="Username" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    {errorMessage && (
+                      <div className="text-sm font-medium text-destructive">
+                        {errorMessage}
+                      </div>
+                    )}
+                  </FormItem>
+                )}
+              />
+              <Button
+                aria-label="save username button"
+                disabled={!isValid || loading} // TODO is this right? or should it be based off length requirement being met?
+                // size="xxl"
+                className="tracking-[.2rem] self-start"
+              >
+                SAVE
+              </Button>
+            </div>
+          </form>
+        </Form>
         <LeaderboardTabs />
       </div>
     </main>
