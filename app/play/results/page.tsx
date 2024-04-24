@@ -71,8 +71,7 @@ export default function Results() {
   //// ON SAVE
   const onSave = async (data: z.infer<typeof formSchema>) => {
     setLoading(true);
-    // setErrorMessage("");
-    // clear form
+    setErrorMessage("");
     form.reset();
     // insert into leaderboard
     // confirmation on success
