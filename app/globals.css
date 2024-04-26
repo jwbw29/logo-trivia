@@ -52,4 +52,7 @@
   .testBorder {
     @apply border border-red-500;
   }
+  .container {
+    @apply border border-dashed border-white;
+  }
 }
