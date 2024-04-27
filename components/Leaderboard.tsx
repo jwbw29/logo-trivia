@@ -21,6 +21,7 @@ interface LeaderboardEntry {
   attempts: number;
 }
 
+//test
 export const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
