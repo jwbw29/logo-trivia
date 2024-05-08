@@ -47,7 +47,6 @@ export default function Home() {
                 <SelectItem value="nfl-afc">AFC</SelectItem>
                 <SelectItem value="nfl-nfc">NFC</SelectItem>
               </SelectGroup>
-              so
               <SelectGroup>
                 <SelectLabel className="text-primary">MLB</SelectLabel>
                 <SelectItem value="mlb-all">All</SelectItem>
